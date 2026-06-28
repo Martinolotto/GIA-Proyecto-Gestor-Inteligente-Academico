@@ -608,3 +608,274 @@ body{
         rgba(47,52,56,.82);
     }
 }
+
+
+
+
+
+
+
+
+/* ==================================================
+   FOOTER GIA
+=================================================== */
+
+.footer-gia{
+
+    background:#25292D;
+
+    color:#FFFFFF;
+
+    margin-top:120px;
+}
+
+
+/* ==================================================
+   CTA SUPERIOR
+=================================================== */
+
+.footer-cta{
+
+    border-bottom:1px solid rgba(255,255,255,.06);
+
+    padding:80px 0;
+}
+
+.footer-cta-contenido{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:40px;
+}
+
+.footer-cta-etiqueta{
+
+    display:inline-block;
+
+    margin-bottom:14px;
+
+    color:#F96B25;
+
+    font-size:.85rem;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    letter-spacing:.5px;
+}
+
+.footer-cta-titulo{
+
+    font-size:2.2rem;
+
+    font-weight:800;
+
+    margin-bottom:16px;
+}
+
+.footer-cta-descripcion{
+
+    max-width:650px;
+
+    color:rgba(255,255,255,.72);
+
+    line-height:1.8;
+}
+
+.footer-cta-boton{
+
+    text-decoration:none;
+
+    background:#F96B25;
+
+    color:#FFFFFF;
+
+    padding:16px 28px;
+
+    border-radius:14px;
+
+    font-weight:700;
+
+    transition:.25s;
+}
+
+.footer-cta-boton:hover{
+
+    background:#EA5F1D;
+
+    color:#FFFFFF;
+
+    transform:translateY(-2px);
+}
+
+
+/* ==================================================
+   CONTENIDO PRINCIPAL
+=================================================== */
+
+.footer-principal{
+
+    padding:70px 0;
+}
+
+
+/* Grid adaptable */
+
+.footer-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+        2fr
+        1fr
+        1fr
+        1fr;
+
+    gap:60px;
+}
+
+
+/* ==================================================
+   MARCA
+=================================================== */
+
+.footer-logo{
+
+    width:120px;
+
+    margin-bottom:20px;
+
+    filter:brightness(0) invert(1);
+}
+
+.footer-texto{
+
+    color:rgba(255,255,255,.70);
+
+    line-height:1.8;
+
+    max-width:340px;
+}
+
+
+/* ==================================================
+   TÍTULOS
+=================================================== */
+
+.footer-titulo{
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    margin-bottom:22px;
+}
+
+
+/* ==================================================
+   LINKS
+=================================================== */
+
+.footer-links{
+
+    list-style:none;
+
+    padding:0;
+
+    margin:0;
+}
+
+.footer-links li{
+
+    margin-bottom:14px;
+}
+
+.footer-links a{
+
+    text-decoration:none;
+
+    color:rgba(255,255,255,.68);
+
+    transition:.25s;
+}
+
+.footer-links a:hover{
+
+    color:#F96B25;
+}
+
+
+/* ==================================================
+   COPYRIGHT
+=================================================== */
+
+.footer-bottom{
+
+    border-top:1px solid rgba(255,255,255,.06);
+
+    padding:22px 0;
+
+    text-align:center;
+}
+
+.footer-bottom p{
+
+    margin:0;
+
+    color:rgba(255,255,255,.55);
+
+    font-size:.9rem;
+}
+
+
+/* ==================================================
+   RESPONSIVE
+=================================================== */
+
+@media (max-width:992px){
+
+    .footer-cta-contenido{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+    }
+
+    .footer-grid{
+
+        grid-template-columns:
+        1fr
+        1fr;
+    }
+}
+
+@media (max-width:576px){
+
+    .footer-cta{
+
+        padding:60px 0;
+    }
+
+    .footer-cta-titulo{
+
+        font-size:1.8rem;
+    }
+
+    .footer-grid{
+
+        grid-template-columns:1fr;
+
+        gap:40px;
+    }
+
+    .footer-principal{
+
+        padding:50px 0;
+    }
+}
