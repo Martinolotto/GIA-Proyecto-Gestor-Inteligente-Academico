@@ -1,0 +1,307 @@
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.login-card {
+  max-width: 460px;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+}
+
+:root {
+  --primary: #f96b25;
+  --primary-hover: #e55f1d;
+
+  --background: #f4f6f9;
+  --card: #ffffff;
+
+  --text: #2f3542;
+  --text-light: #6b7280;
+
+  --border: #dcdfe4;
+  --input-bg: #ffffff;
+
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--background);
+  color: var(--text);
+}
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+
+  background:
+    linear-gradient(rgba(248, 250, 252, 0.75), rgba(248, 250, 252, 0.75)),
+    url("../img/fondo-formasgeometricas.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.login-card {
+  max-width: 460px;
+  width: 100%;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  border: 1px solid rgba(255, 255, 255, 0.8);
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.08),
+    0 4px 10px rgba(0, 0, 0, 0.04);
+
+  animation: fadeUp 0.45s ease;
+}
+.logo-gia {
+  width: 110px;
+
+  transition: 0.25s;
+
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.08));
+}
+
+.login-title {
+  margin-bottom: 0.4rem;
+  color: var(--primary);
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.login-subtitle {
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+.form-label {
+  color: var(--text);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.custom-input-group {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--input-bg);
+  transition: 0.25s;
+}
+
+.custom-input-group:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(249, 107, 37, 0.15);
+}
+
+.custom-input-group .input-group-text {
+  background: #fff;
+  border: none;
+  color: #7b8794;
+  padding-left: 15px;
+}
+
+.custom-input-group .form-control {
+  border: none;
+  background: #fff;
+  color: var(--text);
+  height: 52px;
+  box-shadow: none !important;
+}
+
+.custom-input-group .form-control::placeholder {
+  color: #9ca3af;
+}
+
+.custom-input-group .form-control:focus {
+  background: #fff;
+  color: var(--text);
+}
+
+.form-check-input {
+  cursor: pointer;
+  border-color: #c8ccd2;
+}
+
+.form-check-input:checked {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.form-check-label {
+  color: var(--text-light);
+}
+
+.forgot-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
+.btn-login {
+  height: 52px;
+  border: none;
+  border-radius: 10px;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+  transition: 0.25s;
+}
+
+.btn-login:hover {
+  background: var(--primary-hover);
+  color: #fff;
+}
+
+.btn-login:active {
+  transform: scale(0.99);
+}
+
+.register-text {
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+.register-text a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.register-text a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 576px) {
+  .login-page {
+    padding: 15px;
+  }
+
+  .login-card {
+    border-radius: 14px;
+    padding: 2rem !important;
+  }
+
+  .login-title {
+    font-size: 1.7rem;
+  }
+
+  .logo-gia {
+    width: 90px;
+  }
+}
+
+.card-header-line {
+  height: 6px;
+  background: var(--primary);
+  border-radius: 18px 18px 0 0;
+  margin: -3rem -3rem 2rem -3rem;
+}
+
+.login-card {
+  animation: fadeUp 0.45s ease;
+}
+
+.login-card:hover {
+  transform: translateY(-3px);
+
+  transition: 0.25s;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logo-gia {
+  width: 110px;
+  transition: 0.25s;
+}
+
+.logo-gia:hover {
+  transform: scale(1.03);
+}
+.custom-input-group:focus-within .input-group-text {
+  color: var(--primary);
+}
+
+.custom-input-group {
+  border-radius: 12px;
+
+  transition:
+    border-color 0.25s,
+    box-shadow 0.25s,
+    transform 0.2s;
+}
+
+.custom-input-group:hover {
+  border-color: #c9cdd3;
+}
+
+.btn-login {
+  letter-spacing: 0.4px;
+
+  transition:
+    background 0.25s,
+    transform 0.2s,
+    box-shadow 0.25s;
+}
+
+.btn-login:hover {
+  background: var(--primary-hover);
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 18px rgba(249, 107, 37, 0.22);
+}
+
+.forgot-link,
+.register-text a {
+  transition: 0.2s;
+}
+
+.forgot-link:hover,
+.register-text a:hover {
+  color: var(--primary-hover);
+}
+.login-footer {
+  margin-top: 30px;
+
+  font-size: 0.82rem;
+
+  color: #9aa1ab;
+}
+body {
+  background: linear-gradient(180deg, #f9fafb 0%, #eef2f6 100%);
+}
