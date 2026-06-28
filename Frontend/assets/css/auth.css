@@ -2,7 +2,8 @@ body {
   font-family: "Inter", sans-serif;
 }
 
-.login-card {
+.login-card,
+.register-card {
   max-width: 460px;
 
   border-radius: 18px;
@@ -37,7 +38,8 @@ body {
   color: var(--text);
 }
 
-.login-page {
+.login-page,
+.register-page {
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -54,7 +56,8 @@ body {
   background-attachment: fixed;
 }
 
-.login-card {
+.login-card,
+.register-card {
   max-width: 460px;
   width: 100%;
 
@@ -75,7 +78,8 @@ body {
 
   animation: fadeUp 0.45s ease;
 }
-.logo-gia {
+.logo-gia,
+.custom-logo {
   width: 110px;
 
   transition: 0.25s;
@@ -83,14 +87,16 @@ body {
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.08));
 }
 
-.login-title {
+.login-title,
+.register-title {
   margin-bottom: 0.4rem;
   color: var(--primary);
   font-size: 2rem;
   font-weight: 700;
 }
 
-.login-subtitle {
+.login-subtitle,
+.register-subtitle {
   color: var(--text-light);
   font-size: 0.95rem;
 }
@@ -162,7 +168,8 @@ body {
   text-decoration: underline;
 }
 
-.btn-login {
+.btn-login,
+.btn-register {
   height: 52px;
   border: none;
   border-radius: 10px;
@@ -172,21 +179,25 @@ body {
   transition: 0.25s;
 }
 
-.btn-login:hover {
+.btn-login:hover,
+.btn-register:hover {
   background: var(--primary-hover);
   color: #fff;
 }
 
-.btn-login:active {
+.btn-login:active,
+.btn-register:active {
   transform: scale(0.99);
 }
 
-.register-text {
+.register-text,
+.login-text {
   color: var(--text-light);
   font-size: 0.95rem;
 }
 
-.register-text a {
+.register-text a,
+.login-text a {
   color: var(--primary);
   text-decoration: none;
   font-weight: 600;
@@ -197,20 +208,24 @@ body {
 }
 
 @media (max-width: 576px) {
-  .login-page {
+  .login-page,
+  .register-page {
     padding: 15px;
   }
 
-  .login-card {
+  .login-card,
+  .register-card {
     border-radius: 14px;
     padding: 2rem !important;
   }
 
-  .login-title {
+  .login-title,
+  .register-title {
     font-size: 1.7rem;
   }
 
-  .logo-gia {
+  .logo-gia,
+  .custom-logo {
     width: 90px;
   }
 }
@@ -222,11 +237,13 @@ body {
   margin: -3rem -3rem 2rem -3rem;
 }
 
-.login-card {
+.login-card,
+.register-card {
   animation: fadeUp 0.45s ease;
 }
 
-.login-card:hover {
+.login-card:hover,
+.register-card:hover {
   transform: translateY(-3px);
 
   transition: 0.25s;
@@ -244,12 +261,14 @@ body {
   }
 }
 
-.logo-gia {
+.logo-gia,
+.custom-logo {
   width: 110px;
   transition: 0.25s;
 }
 
-.logo-gia:hover {
+.logo-gia:hover,
+.custom-logo:hover {
   transform: scale(1.03);
 }
 .custom-input-group:focus-within .input-group-text {
@@ -269,7 +288,8 @@ body {
   border-color: #c9cdd3;
 }
 
-.btn-login {
+.btn-login,
+.btn-register {
   letter-spacing: 0.4px;
 
   transition:
@@ -278,7 +298,8 @@ body {
     box-shadow 0.25s;
 }
 
-.btn-login:hover {
+.btn-login:hover,
+.btn-register:hover {
   background: var(--primary-hover);
 
   transform: translateY(-2px);
@@ -304,4 +325,9 @@ body {
 }
 body {
   background: linear-gradient(180deg, #f9fafb 0%, #eef2f6 100%);
+}
+
+.register-card {
+  max-width: 650px;
+  width: 100%;
 }
