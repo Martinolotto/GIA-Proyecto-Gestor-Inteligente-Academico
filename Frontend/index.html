@@ -37,7 +37,66 @@ el index solo redirigue el texto que escribio el usuario
   </head>
 
 <body>
-  
+  <!--NAVBAR 
+  buscador
+  registro/login
+  nav entre inicio y guia 
+  logo de Gia
+  -->
+    <nav class="navbar navbar-expand-lg gia-navbar sticky-top">
+      <div class="container-fluid px-lg-4">
+        <a class="navbar-brand me-4" href="index.html">
+          <img src="assets/img/logo-GIA.png" alt="GIA" class="gia-logo" />
+        </a>
+
+        <button
+          class="navbar-toggler gia-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#giaNavbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="giaNavbar">
+          <ul class="navbar-nav me-4">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html"> Inicio </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#"> Guía </a>
+            </li>
+          </ul>
+
+          <form class="gia-search mx-auto">
+            <svg class="gia-search-icon" viewBox="0 0 24 24" fill="none">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+
+            <input
+              type="search"
+              placeholder="Buscar por institución, ciudad o carrera..."
+            />
+          </form>
+
+          <div class="gia-trust d-none d-xl-flex">
+            <span class="gia-dot"></span>
+
+            <span> 100+ perfiles verificados </span>
+          </div>
+
+          <div class="gia-auth">
+            <a href="login.html" class="gia-login"> Iniciar sesión </a>
+
+            <a href="registro.html" class="gia-register">
+              Registrar institución
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
 
   
 </body>
