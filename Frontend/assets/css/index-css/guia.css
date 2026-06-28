@@ -1,0 +1,951 @@
+/* ==========================================================
+   GUÍA INTERACTIVA GIA
+   ==========================================================
+
+   Archivo:
+   guia.css
+
+   Descripción:
+   ------------
+   Contiene todos los estilos correspondientes al
+   componente "Guía Interactiva".
+
+   Este componente representa el núcleo principal
+   de la plataforma y será utilizado por los alumnos
+   para aprender los conceptos fundamentales del
+   nivel terciario y universitario.
+
+   Arquitectura del archivo:
+
+   1. Variables
+   2. Contenedor principal
+   3. Cabecera
+   4. Información general
+   5. Introducción
+   6. Grid de módulos
+   7. Tarjetas
+   8. Footer
+   9. Responsive
+
+========================================================== */
+
+
+
+/* ==========================================================
+   VARIABLES DEL COMPONENTE
+   ----------------------------------------------------------
+   Todas las variables del componente se centralizan aquí
+   para facilitar futuras modificaciones del diseño.
+========================================================== */
+
+:root{
+
+    /* ---------- Color principal ---------- */
+
+    --gia-primary:#F96B25;
+
+    /* ---------- Fondos ---------- */
+
+    --gia-bg:#F8FAFC;
+
+    --gia-card:#FFFFFF;
+
+    /* ---------- Tipografía ---------- */
+
+    --gia-title:#17233C;
+
+    --gia-text:#64748B;
+
+    --gia-muted:#94A3B8;
+
+    /* ---------- Bordes ---------- */
+
+    --gia-border:#E7ECF1;
+
+    /* ---------- Sombras ---------- */
+
+    --gia-shadow:
+
+        0 15px 40px rgba(15,23,42,.05);
+
+    --gia-shadow-hover:
+
+        0 25px 60px rgba(15,23,42,.10);
+
+}
+
+/* ==========================================================
+   CONTENEDOR PRINCIPAL
+========================================================== */
+
+.gia-guia{
+
+    background:var(--gia-bg);
+
+    padding:140px 0;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+/* ==========================================================
+   CABECERA
+========================================================== */
+
+.gia-guia-header{
+
+    max-width:850px;
+
+    margin:0 auto;
+
+    text-align:center;
+
+}
+
+/* ==========================================================
+   ETIQUETA SUPERIOR
+========================================================== */
+
+.gia-guia-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:
+
+        10px 20px;
+
+    border-radius:999px;
+
+    background:
+
+        rgba(249,107,37,.12);
+
+    color:
+
+        var(--gia-primary);
+
+    font-size:.85rem;
+
+    font-weight:700;
+
+    letter-spacing:.4px;
+
+}
+
+/* ==========================================================
+   TÍTULO PRINCIPAL
+========================================================== */
+
+.gia-guia-titulo{
+
+    margin-top:28px;
+
+    color:var(--gia-title);
+
+    font-size:3rem;
+
+    font-weight:800;
+
+    line-height:1.15;
+
+}
+
+/* ==========================================================
+   DESCRIPCIÓN
+========================================================== */
+
+.gia-guia-descripcion{
+
+    margin:
+
+        28px auto 0;
+
+    max-width:760px;
+
+    color:var(--gia-text);
+
+    font-size:1.15rem;
+
+    line-height:1.9;
+
+}
+
+/* ==========================================================
+   INFORMACIÓN GENERAL
+========================================================== */
+
+.gia-guia-meta{
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(4,1fr);
+
+    gap:24px;
+
+    margin-top:70px;
+
+}
+
+/* ==========================================================
+   TARJETAS META
+========================================================== */
+
+.gia-guia-meta-item{
+
+    background:var(--gia-card);
+
+    border:1px solid var(--gia-border);
+
+    border-radius:20px;
+
+    padding:28px;
+
+    text-align:center;
+
+    transition:.30s;
+
+}
+
+.gia-guia-meta-item:hover{
+
+    transform:
+
+        translateY(-6px);
+
+    box-shadow:
+
+        var(--gia-shadow);
+
+}
+
+/* ==========================================================
+   NÚMEROS DESTACADOS
+========================================================== */
+
+.gia-meta-numero{
+
+    display:block;
+
+    color:var(--gia-title);
+
+    font-size:2rem;
+
+    font-weight:800;
+
+}
+
+.gia-meta-texto{
+
+    display:block;
+
+    margin-top:10px;
+
+    color:var(--gia-text);
+
+    font-size:.95rem;
+
+}
+
+/* ==========================================================
+   INTRODUCCIÓN
+========================================================== */
+
+.gia-guia-introduccion{
+
+    max-width:900px;
+
+    margin:110px auto 0;
+
+    background:#FFFFFF;
+
+    border-radius:28px;
+
+    padding:60px;
+
+    border:1px solid var(--gia-border);
+
+    box-shadow:
+
+        var(--gia-shadow);
+
+}
+
+/* ==========================================================
+   TÍTULO INTRODUCCIÓN
+========================================================== */
+
+.gia-guia-introduccion h3{
+
+    color:var(--gia-title);
+
+    font-size:2rem;
+
+    font-weight:800;
+
+}
+
+/* ==========================================================
+   TEXTO INTRODUCCIÓN
+========================================================== */
+
+.gia-guia-introduccion p{
+
+    margin-top:24px;
+
+    color:var(--gia-text);
+
+    line-height:1.9;
+
+    font-size:1.05rem;
+
+}
+
+.gia-guia-introduccion strong{
+
+    color:var(--gia-title);
+
+}
+
+/* ==========================================================
+   BOTÓN PRINCIPAL
+========================================================== */
+
+.gia-guia-btn-comenzar{
+
+    margin-top:40px;
+
+    border:none;
+
+    background:var(--gia-primary);
+
+    color:#FFFFFF;
+
+    padding:
+
+        15px 30px;
+
+    border-radius:14px;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.30s;
+
+}
+
+.gia-guia-btn-comenzar:hover{
+
+    transform:
+
+        translateY(-3px);
+
+    box-shadow:
+
+        0 18px 35px rgba(249,107,37,.25);
+
+}
+
+/* ==========================================================
+   RESPONSIVE TABLET
+========================================================== */
+
+@media (max-width:992px){
+
+    .gia-guia{
+
+        padding:110px 0;
+
+    }
+
+    .gia-guia-titulo{
+
+        font-size:2.5rem;
+
+    }
+
+    .gia-guia-meta{
+
+        grid-template-columns:
+
+            repeat(2,1fr);
+
+    }
+
+}
+
+/* ==========================================================
+   RESPONSIVE MOBILE
+========================================================== */
+
+@media (max-width:576px){
+
+    .gia-guia{
+
+        padding:90px 0;
+
+    }
+
+    .gia-guia-titulo{
+
+        font-size:2rem;
+
+    }
+
+    .gia-guia-descripcion{
+
+        font-size:1rem;
+
+    }
+
+    .gia-guia-meta{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .gia-guia-introduccion{
+
+        padding:35px;
+
+    }
+
+}
+
+
+/* ==========================================================
+   GRID DE MÓDULOS
+   ----------------------------------------------------------
+   Organiza automáticamente las tarjetas utilizando CSS Grid.
+   La cantidad de columnas se adapta según el espacio
+   disponible sin necesidad de modificar el código.
+========================================================== */
+
+.gia-guia-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(320px,1fr));
+
+    gap:34px;
+
+    margin-top:70px;
+
+}
+
+/* ==========================================================
+   TARJETAS DE MÓDULO
+========================================================== */
+
+.gia-guia-card{
+
+    display:flex;
+
+    flex-direction:column;
+
+    background:var(--gia-card);
+
+    border:1px solid transparent;
+
+    border-radius:24px;
+
+    padding:34px;
+
+    transition:
+
+        transform .30s,
+
+        box-shadow .30s,
+
+        border-color .30s;
+
+    box-shadow:
+
+        var(--gia-shadow);
+
+}
+
+/* ==========================================================
+   ENCABEZADO DE LA TARJETA
+========================================================== */
+
+.gia-guia-card-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:28px;
+
+}
+
+/* ==========================================================
+   ICONO
+========================================================== */
+
+.gia-guia-icono{
+
+    width:62px;
+
+    height:62px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:1.6rem;
+
+}
+
+/* Azul */
+
+.icono-azul{
+
+    background:#E8F1FF;
+
+    color:#2F6FED;
+
+}
+
+/* Naranja */
+
+.icono-naranja{
+
+    background:#FFF2E8;
+
+    color:#F96B25;
+
+}
+
+/* Verde */
+
+.icono-verde{
+
+    background:#EAF8EF;
+
+    color:#1EA55B;
+
+}
+
+/* Violeta */
+
+.icono-violeta{
+
+    background:#F1ECFF;
+
+    color:#7B5AF8;
+
+}
+
+/* ==========================================================
+   NIVEL
+========================================================== */
+
+.gia-guia-nivel{
+
+    padding:
+
+        8px 14px;
+
+    border-radius:999px;
+
+    background:#F4F7FA;
+
+    color:var(--gia-text);
+
+    font-size:.80rem;
+
+    font-weight:700;
+
+}
+
+/* ==========================================================
+   TÍTULO TARJETA
+========================================================== */
+
+.gia-guia-card h3{
+
+    color:var(--gia-title);
+
+    font-size:1.45rem;
+
+    font-weight:800;
+
+}
+
+.gia-guia-card p{
+
+    margin-top:18px;
+
+    color:var(--gia-text);
+
+    line-height:1.8;
+
+}
+
+/* ==========================================================
+   LISTA DE CONCEPTOS
+========================================================== */
+
+.gia-guia-lista{
+
+    list-style:none;
+
+    margin:
+
+        28px 0;
+
+    padding:0;
+
+}
+
+.gia-guia-lista li{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:14px;
+
+    color:var(--gia-title);
+
+    font-size:.95rem;
+
+}
+
+.gia-guia-lista li::before{
+
+    content:"✓";
+
+    color:var(--gia-primary);
+
+    font-weight:700;
+
+}
+
+/* ==========================================================
+   INFORMACIÓN DEL MÓDULO
+========================================================== */
+
+.gia-guia-info{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:auto;
+
+    color:var(--gia-muted);
+
+    font-size:.90rem;
+
+}
+
+/* ==========================================================
+   PROGRESO
+========================================================== */
+
+.gia-guia-progress{
+
+    margin-top:20px;
+
+    height:8px;
+
+    border-radius:999px;
+
+    background:#EEF2F6;
+
+    overflow:hidden;
+
+}
+
+.gia-guia-progress-fill{
+
+    width:0;
+
+    height:100%;
+
+    background:var(--gia-primary);
+
+    transition:width .5s;
+
+}
+
+/* ==========================================================
+   BOTÓN DE TARJETA
+========================================================== */
+
+.gia-guia-card-btn{
+
+    margin-top:28px;
+
+    border:none;
+
+    background:none;
+
+    padding:0;
+
+    align-self:flex-start;
+
+    color:var(--gia-primary);
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.gia-guia-card-btn:hover{
+
+    transform:translateX(6px);
+
+}
+
+
+
+/* ==========================================================
+   FOOTER DE LA GUÍA
+   ----------------------------------------------------------
+   Este bloque cierra la experiencia de la guía invitando
+   al usuario a comenzar el recorrido sugerido.
+
+   En futuras versiones podrá mostrar recomendaciones
+   dinámicas mediante JavaScript.
+========================================================== */
+
+.gia-guia-footer{
+
+    margin-top:90px;
+
+    background:#FFFFFF;
+
+    border:1px solid var(--gia-border);
+
+    border-radius:28px;
+
+    padding:55px;
+
+    text-align:center;
+
+    box-shadow:var(--gia-shadow);
+
+}
+
+/* ==========================================================
+   TÍTULO DEL FOOTER
+========================================================== */
+
+.gia-guia-footer h3{
+
+    color:var(--gia-title);
+
+    font-size:2rem;
+
+    font-weight:800;
+
+}
+
+/* ==========================================================
+   DESCRIPCIÓN DEL FOOTER
+========================================================== */
+
+.gia-guia-footer p{
+
+    max-width:700px;
+
+    margin:22px auto 0;
+
+    color:var(--gia-text);
+
+    line-height:1.9;
+
+    font-size:1.05rem;
+
+}
+
+
+/* ==========================================================
+   BOTÓN DEL FOOTER
+========================================================== */
+
+.gia-guia-btn-footer{
+
+    margin-top:35px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:var(--gia-primary);
+
+    color:#FFFFFF;
+
+    padding:15px 34px;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:
+        background .30s,
+        transform .30s,
+        box-shadow .30s;
+
+}
+.gia-guia-btn-footer:hover{
+
+    background:#EA5F1D;
+
+    transform:translateY(-3px);
+
+    box-shadow:
+
+        0 18px 35px rgba(249,107,37,.25);
+
+}
+
+/* ==========================================================
+   ANIMACIONES
+========================================================== */
+
+.gia-guia-header,
+
+.gia-guia-meta,
+
+.gia-guia-introduccion,
+
+.gia-guia-grid,
+
+.gia-guia-footer{
+
+    animation:
+
+        guiaFade .8s ease;
+
+}
+
+/* ==========================================================
+   ANIMACIÓN DE ENTRADA
+========================================================== */
+
+@keyframes guiaFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================================================
+   TRANSICIONES GENERALES
+========================================================== */
+
+.gia-guia-card,
+
+.gia-guia-meta-item,
+
+.gia-guia-btn-comenzar,
+
+.gia-guia-btn-footer{
+
+    will-change:
+
+        transform;
+
+}
+
+/* ==========================================================
+   TARJETAS EN TABLET
+========================================================== */
+
+.gia-guia-grid{
+
+    grid-template-columns:
+
+        repeat(2,1fr);
+}
+
+.gia-guia-footer{
+
+    padding:45px;
+
+}
+
+/* ==========================================================
+   GUÍA RESPONSIVE
+========================================================== */
+
+.gia-guia-grid{
+
+    grid-template-columns:1fr;
+
+}
+.gia-guia-card{
+
+    padding:28px;
+
+}
+.gia-guia-card-header{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:18px;
+
+}
+.gia-guia-footer{
+
+    padding:35px;
+
+}
+.gia-guia-meta-item{
+
+    padding:22px;
+
+}
+.gia-guia-introduccion{
+
+    padding:32px;
+
+}
+
