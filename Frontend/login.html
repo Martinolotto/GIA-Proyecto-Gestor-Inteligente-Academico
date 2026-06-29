@@ -1,34 +1,15 @@
-<!-- formulario para login o registro 
- para no hacer uno para registro y otro para log in se podria diseñár algo como una sola tarjeta central, pero que tenga dos pestañas de boodstrap
- una que muestre el formulario para iniciar sesion
- otro para el registrar institución-->
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>GIA | Iniciar sesión</title>
-
     <link rel="icon" type="image/png" href="assets/img/logo-gia-circular.png" />
-
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/auth.css" />
-
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   </head>
-
   <body>
     <div class="login-page d-flex align-items-center justify-content-center">
       <div class="container">
@@ -36,100 +17,41 @@
           <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
             <div class="login-card p-4 p-md-5">
               <div class="card-header-line"></div>
-              <!-- Logo -->
-
               <div class="text-center mb-4">
-                <img
-                  src="assets/img/logo-GIA.png"
-                  alt="Logo GIA"
-                  class="logo-gia mb-3"
-                />
-
+                <img src="assets/img/logo-GIA.png" alt="Logo GIA" class="logo-gia mb-3" />
                 <h1 class="login-title">Bienvenido a GIA</h1>
-
                 <p class="login-subtitle">Gestor Inteligente Académico</p>
               </div>
 
-              <!-- Formulario -->
+              <!-- Alerta de error -->
+              <div id="alerta-error" class="alert alert-danger d-none" role="alert"></div>
 
-              <form>
-                <!-- Correo -->
+              <form id="form-login">
+                <div class="mb-3">
+                  <label for="email" class="form-label">Correo electrónico</label>
+                  <div class="input-group custom-input-group">
+                    <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
+                    <input type="email" class="form-control" id="email" placeholder="Ingrese su correo electrónico" required />
+                  </div>
+                </div>
 
                 <div class="mb-3">
-                  <label for="email" class="form-label">
-                    Correo electrónico
-                  </label>
-
+                  <label for="password" class="form-label">Contraseña</label>
                   <div class="input-group custom-input-group">
-                    <span class="input-group-text">
-                      <i class="bi bi-envelope-fill"></i>
-                    </span>
-
-                    <input
-                      type="email"
-                      class="form-control"
-                      id="email"
-                      placeholder="Ingrese su correo electrónico"
-                    />
+                    <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+                    <input type="password" class="form-control" id="password" placeholder="Ingrese su contraseña" required />
                   </div>
                 </div>
 
-                <!-- Contraseña -->
-
-                <div class="mb-3">
-                  <label for="password" class="form-label"> Contraseña </label>
-
-                  <div class="input-group custom-input-group">
-                    <span class="input-group-text">
-                      <i class="bi bi-lock-fill"></i>
-                    </span>
-
-                    <input
-                      type="password"
-                      class="form-control"
-                      id="password"
-                      placeholder="Ingrese su contraseña"
-                    />
-                  </div>
-                </div>
-
-                <!-- Recordarme -->
-
-                <div
-                  class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2"
-                >
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      id="remember"
-                    />
-
-                    <label class="form-check-label" for="remember">
-                      Recordarme
-                    </label>
-                  </div>
-
-                  <a href="#" class="forgot-link"> ¿Olvidó su contraseña? </a>
-                </div>
-
-                <!-- Botón -->
-
-                <button type="submit" class="btn btn-login w-100">
+                <button type="submit" class="btn btn-login w-100" id="btn-login">
                   <i class="bi bi-box-arrow-in-right me-2"></i>
                   Iniciar sesión
                 </button>
 
-                <!-- Registro -->
-
                 <p class="register-text text-center mt-4 mb-0">
-                  ¿No posee una cuenta?
-
-                  <a href="register.html"> Registrarse </a>
+                  ¿No posee una cuenta? <a href="register.html">Registrarse</a>
                 </p>
-                <div class="login-footer text-center mt-4">
-                  © 2026 GIA - Gestor Inteligente Académico
-                </div>
+                <div class="login-footer text-center mt-4">© 2026 GIA - Gestor Inteligente Académico</div>
               </form>
             </div>
           </div>
@@ -138,5 +60,52 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      const API = "http://localhost:3000";
+
+      document.getElementById("form-login").addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const btn = document.getElementById("btn-login");
+        const alerta = document.getElementById("alerta-error");
+
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Ingresando...';
+        alerta.classList.add("d-none");
+
+        try {
+          const res = await fetch(`${API}/usuarios/login`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, contrasenia: password })
+          });
+
+          const data = await res.json();
+
+          if (!res.ok) {
+            throw new Error(data.message || "Error al iniciar sesión");
+          }
+
+          // Guardar token y datos en localStorage
+          localStorage.setItem("token", data.token);
+          localStorage.setItem("usuario", JSON.stringify(data.usuario));
+
+          // Redirigir según rol
+          if (data.usuario.role === "administrador") {
+            window.location.href = "panel-control.html";
+          } else if (data.usuario.role === "representante") {
+            window.location.href = "perfil-instituciones.html";
+          }
+
+        } catch (error) {
+          alerta.textContent = error.message;
+          alerta.classList.remove("d-none");
+          btn.disabled = false;
+          btn.innerHTML = '<i class="bi bi-box-arrow-in-right me-2"></i>Iniciar sesión';
+        }
+      });
+    </script>
   </body>
 </html>

@@ -73,10 +73,10 @@ export const solicitarRegistro = async (req, res) => {
     });
 
     res.json({ message: "Solicitud enviada correctamente. Te avisaremos cuando sea aprobada." });
-  } catch (error) {
+} catch (error) {
     console.log(error.message);
     res.status(500).json({ message: "Error al enviar solicitud: " + error.message });
-  }
+}
 };
 
 // PATCH /instituciones/:id/estado - Aprobar o rechazar (solo admin)

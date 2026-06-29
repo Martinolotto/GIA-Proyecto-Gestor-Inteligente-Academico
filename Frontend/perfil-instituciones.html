@@ -1,10 +1,310 @@
-<!-- vista dinamica de una institucion 
-Diseñar la estructura de un perdil de una institucion 
-espacios para el logo info carreras contacto, etc. 
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GIA | Perfil de Institución</title>
+    <link rel="icon" type="image/png" href="assets/img/logo-gia-circular.png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <style>
+      .perfil-hero {
+        background: linear-gradient(135deg, #1a1f3a 0%, #2d3561 100%);
+        color: white;
+        padding: 48px 0;
+      }
+      .perfil-logo {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 16px;
+        border: 3px solid rgba(255,255,255,0.2);
+      }
+      .info-card {
+        border: none;
+        border-radius: 16px;
+        box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      }
+      .badge-estado {
+        border-radius: 20px;
+        padding: 6px 16px;
+        font-size: 0.8rem;
+      }
+      /* Panel del representante */
+      .panel-representante {
+        background: #f8faff;
+        border-left: 4px solid #4361ee;
+        border-radius: 0 12px 12px 0;
+        padding: 20px;
+        margin-bottom: 24px;
+      }
+      .offcanvas-header { background: #1a1f3a; color: white; }
+      .offcanvas-header .btn-close { filter: invert(1); }
+      .nav-panel .nav-link {
+        color: #444;
+        border-radius: 8px;
+        padding: 10px 16px;
+        margin-bottom: 4px;
+      }
+      .nav-panel .nav-link:hover, .nav-panel .nav-link.active {
+        background: #eef1ff;
+        color: #4361ee;
+      }
+      .nav-panel .nav-link i { margin-right: 10px; }
+    </style>
+  </head>
+  <body>
 
-hay que usar logica de inyeccion de datos en js 
- podriamosdejar espacios reservados, con ids 
- como por ejemplo un 
- <h1 id="nombre-escuela">Cargando...</h1>
- para que cuando el usuario entre js reemplace el cargando, por el nombre de la base de datos
- -->
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg gia-navbar sticky-top">
+      <div class="container-fluid px-lg-4">
+        <a class="navbar-brand" href="index.html">
+          <img src="assets/img/logo-GIA.png" alt="GIA" class="gia-logo" />
+        </a>
+        <div class="ms-auto d-flex align-items-center gap-3">
+          <!-- Botón panel (solo visible si está logueado como representante) -->
+          <button id="btn-panel" class="btn btn-sm btn-primary d-none"
+            data-bs-toggle="offcanvas" data-bs-target="#panelRepresentante">
+            <i class="bi bi-grid-fill me-1"></i> Mi Panel
+          </button>
+          <a href="login.html" class="gia-login" id="btn-login-nav">Iniciar sesión</a>
+          <button class="btn btn-sm btn-outline-danger d-none" id="btn-logout" onclick="cerrarSesion()">
+            <i class="bi bi-box-arrow-right"></i> Salir
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Offcanvas: Panel del Representante -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="panelRepresentante">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title"><i class="bi bi-building me-2"></i>Panel de Institución</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+      </div>
+      <div class="offcanvas-body">
+        <nav class="nav-panel d-flex flex-column">
+          <a href="#" class="nav-link active" onclick="mostrarSeccion('ver-perfil')">
+            <i class="bi bi-eye"></i> Ver mi perfil
+          </a>
+          <a href="#" class="nav-link" onclick="mostrarSeccion('editar-perfil')">
+            <i class="bi bi-pencil-square"></i> Editar información
+          </a>
+          <hr />
+          <a href="#" class="nav-link text-danger" onclick="cerrarSesion()">
+            <i class="bi bi-box-arrow-right"></i> Cerrar sesión
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Hero del perfil -->
+    <section class="perfil-hero" id="perfil-hero">
+      <div class="container">
+        <div class="d-flex align-items-center gap-4 flex-wrap">
+          <img id="inst-logo" src="assets/img/logo-gia-circular.png" alt="Logo institución" class="perfil-logo" />
+          <div>
+            <h1 class="fw-bold mb-1" id="inst-nombre">Cargando...</h1>
+            <p class="mb-1 opacity-75"><i class="bi bi-geo-alt me-1"></i><span id="inst-localidad"></span></p>
+            <p class="mb-0 opacity-75"><i class="bi bi-envelope me-1"></i><span id="inst-email"></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contenido principal -->
+    <main class="py-5">
+      <div class="container">
+
+        <!-- Alerta si es representante y puede editar -->
+        <div id="panel-representante-aviso" class="panel-representante d-none">
+          <strong><i class="bi bi-info-circle me-2"></i>Sos el representante de esta institución.</strong>
+          <p class="mb-0 mt-1 text-muted small">Podés editar tu información desde el panel lateral.</p>
+        </div>
+
+        <!-- SECCIÓN: Ver perfil (pública) -->
+        <div id="seccion-ver-perfil">
+          <div class="row g-4">
+            <div class="col-12 col-md-6">
+              <div class="card info-card p-4 h-100">
+                <h5 class="fw-bold mb-3"><i class="bi bi-info-circle me-2 text-primary"></i>Información general</h5>
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-2"><strong>CUE:</strong> <span id="inst-cue">—</span></li>
+                  <li class="mb-2"><strong>Localidad:</strong> <span id="inst-localidad-2">—</span></li>
+                  <li class="mb-2"><strong>Email:</strong> <span id="inst-email-2">—</span></li>
+                  <li><strong>Estado:</strong> <span id="inst-estado" class="badge badge-estado bg-success">—</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="card info-card p-4 h-100">
+                <h5 class="fw-bold mb-3"><i class="bi bi-mortarboard me-2 text-primary"></i>Carreras disponibles</h5>
+                <p class="text-muted small">Próximamente el representante podrá cargar las carreras disponibles.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECCIÓN: Editar perfil (solo representante) -->
+        <div id="seccion-editar-perfil" class="d-none">
+          <div class="card info-card p-4">
+            <h5 class="fw-bold mb-4"><i class="bi bi-pencil-square me-2 text-primary"></i>Editar información de la institución</h5>
+            <div id="alerta-editar" class="d-none mb-3"></div>
+            <form id="form-editar">
+              <div class="mb-3">
+                <label class="form-label">Nombre de la institución</label>
+                <input type="text" class="form-control" id="edit-nombre" />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Localidad</label>
+                <input type="text" class="form-control" id="edit-localidad" />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Email institucional</label>
+                <input type="email" class="form-control" id="edit-email" />
+              </div>
+              <div class="mb-4">
+                <label class="form-label">URL del logo</label>
+                <input type="url" class="form-control" id="edit-imagen" placeholder="https://..." />
+              </div>
+              <button type="submit" class="btn btn-primary">
+                <i class="bi bi-save me-2"></i>Guardar cambios
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      const API = "http://localhost:3000";
+      let institucionId = null;
+      let usuarioLogueado = null;
+
+      window.addEventListener("DOMContentLoaded", async () => {
+        // Verificar si hay sesión
+        const token = localStorage.getItem("token");
+        const usuarioStr = localStorage.getItem("usuario");
+
+        if (token && usuarioStr) {
+          usuarioLogueado = JSON.parse(usuarioStr);
+          if (usuarioLogueado.role === "representante") {
+            document.getElementById("btn-panel").classList.remove("d-none");
+            document.getElementById("btn-logout").classList.remove("d-none");
+            document.getElementById("btn-login-nav").classList.add("d-none");
+            document.getElementById("panel-representante-aviso").classList.remove("d-none");
+          }
+        }
+
+        // Cargar institución por ID (desde URL) o la del representante
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get("id");
+
+        if (id) {
+          institucionId = id;
+          await cargarInstitucion(id);
+        } else if (usuarioLogueado?.role === "representante") {
+          // Buscar la institución del representante logueado
+          // Por ahora se redirige al representante a editar su propia institución
+          await cargarInstitucionDelRepresentante();
+        }
+      });
+
+      async function cargarInstitucion(id) {
+        try {
+          const res = await fetch(`${API}/instituciones/${id}`);
+          const inst = await res.json();
+          mostrarDatos(inst);
+          institucionId = inst.id;
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
+      async function cargarInstitucionDelRepresentante() {
+        // Placeholder: buscar la institución del representante
+        // Esto requeriría un endpoint /representante/mi-institucion
+        console.log("Cargar institución del representante logueado");
+      }
+
+      function mostrarDatos(inst) {
+        document.getElementById("inst-nombre").textContent = inst.nombre_institucion;
+        document.getElementById("inst-localidad").textContent = inst.localidad;
+        document.getElementById("inst-email").textContent = inst.email;
+        document.getElementById("inst-logo").src = inst.imagen_url;
+        document.getElementById("inst-cue").textContent = inst.cue;
+        document.getElementById("inst-localidad-2").textContent = inst.localidad;
+        document.getElementById("inst-email-2").textContent = inst.email;
+        document.getElementById("inst-estado").textContent = inst.estado;
+
+        // Pre-llenar form de edición
+        document.getElementById("edit-nombre").value = inst.nombre_institucion;
+        document.getElementById("edit-localidad").value = inst.localidad;
+        document.getElementById("edit-email").value = inst.email;
+        document.getElementById("edit-imagen").value = inst.imagen_url;
+      }
+
+      function mostrarSeccion(seccion) {
+        document.getElementById("seccion-ver-perfil").classList.add("d-none");
+        document.getElementById("seccion-editar-perfil").classList.add("d-none");
+
+        if (seccion === "ver-perfil") {
+          document.getElementById("seccion-ver-perfil").classList.remove("d-none");
+        } else if (seccion === "editar-perfil") {
+          document.getElementById("seccion-editar-perfil").classList.remove("d-none");
+        }
+
+        // Cerrar offcanvas
+        const offcanvas = bootstrap.Offcanvas.getInstance(document.getElementById("panelRepresentante"));
+        if (offcanvas) offcanvas.hide();
+      }
+
+      // Formulario de edición
+      document.getElementById("form-editar").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const token = localStorage.getItem("token");
+        const alerta = document.getElementById("alerta-editar");
+
+        const datos = {
+          nombre_institucion: document.getElementById("edit-nombre").value,
+          localidad: document.getElementById("edit-localidad").value,
+          email: document.getElementById("edit-email").value,
+          imagen_url: document.getElementById("edit-imagen").value,
+        };
+
+        try {
+          const res = await fetch(`${API}/instituciones/${institucionId}`, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${token}`
+            },
+            body: JSON.stringify(datos)
+          });
+
+          const data = await res.json();
+
+          alerta.className = res.ok ? "alert alert-success" : "alert alert-danger";
+          alerta.textContent = data.message;
+          alerta.classList.remove("d-none");
+
+          if (res.ok) await cargarInstitucion(institucionId);
+
+        } catch (error) {
+          alerta.className = "alert alert-danger";
+          alerta.textContent = "Error al guardar cambios.";
+          alerta.classList.remove("d-none");
+        }
+      });
+
+      function cerrarSesion() {
+        localStorage.removeItem("token");
+        localStorage.removeItem("usuario");
+        window.location.href = "login.html";
+      }
+    </script>
+  </body>
+</html>
