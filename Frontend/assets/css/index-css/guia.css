@@ -80,14 +80,9 @@
 
 .gia-guia{
 
-    background:var(--gia-bg);
+    background:transparent;
 
-    padding:140px 0;
-
-    position:relative;
-
-    overflow:hidden;
-
+    padding:120px 0;
 }
 
 /* ==========================================================
@@ -454,10 +449,6 @@
 
     flex-direction:column;
 
-    background:var(--gia-card);
-
-    border:1px solid transparent;
-
     border-radius:24px;
 
     padding:34px;
@@ -473,6 +464,14 @@
     box-shadow:
 
         var(--gia-shadow);
+
+    background:rgba(255,255,255,.78);
+
+backdrop-filter:blur(12px);
+
+-webkit-backdrop-filter:blur(12px);
+
+border:1px solid rgba(255,255,255,.55);
 
 }
 
@@ -949,3 +948,35 @@
 
 }
 
+/* ==================================================
+   ICONOS DE LOS MÓDULOS
+   --------------------------------------------------
+   Se utilizan Bootstrap Icons para representar
+   visualmente la temática principal de cada módulo.
+
+   Todos los iconos mantienen el mismo tamaño para
+   conservar consistencia visual.
+=================================================== */
+
+.gia-guia-icono{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:58px;
+    height:58px;
+
+    border-radius:16px;
+
+    font-size:1.45rem;
+
+    flex-shrink:0;
+}
+
+.gia-guia-icono i{
+
+    line-height:1;
+}

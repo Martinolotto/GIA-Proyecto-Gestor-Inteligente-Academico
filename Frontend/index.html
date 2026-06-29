@@ -25,6 +25,10 @@ el index solo redirigue el texto que escribio el usuario
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -35,13 +39,13 @@ el index solo redirigue el texto que escribio el usuario
     />
     <!-- Vinculos a estilos-->
     <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="assets/css/index-css/hero.css">
-    <link rel="stylesheet" href="assets/css/index-css/valor.css">
-    <link rel="stylesheet" href="assets/css/index-css/guia.css">
+    <link rel="stylesheet" href="assets/css/index-css/hero.css" />
+    <link rel="stylesheet" href="assets/css/index-css/valor.css" />
+    <link rel="stylesheet" href="assets/css/index-css/guia.css" />
   </head>
 
-<body>
-  <!--NAVBAR 
+  <body>
+    <!--NAVBAR 
   buscador
   registro/login
   nav entre inicio y guia 
@@ -69,45 +73,38 @@ el index solo redirigue el texto que escribio el usuario
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="#"> Guía </a>
+              <a class="nav-link" href="#guia"> Guía </a>
             </li>
           </ul>
 
           <form class="gia-search mx-auto">
             <svg class="gia-search-icon" viewBox="0 0 24 24" fill="none">
               <circle cx="11" cy="11" r="8"></circle>
+
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
 
-            <input
-              type="search"
-              placeholder="Buscar por institución, ciudad o carrera..."
-            />
+            <input type="search" placeholder="Buscar institución" />
+
+            <button class="gia-search-btn" type="submit">Buscar</button>
           </form>
 
           <div class="gia-trust d-none d-xl-flex">
             <span class="gia-dot"></span>
 
-            <span> 100+ perfiles verificados </span>
+            <span> Instituciones verificadas </span>
           </div>
 
           <div class="gia-auth">
             <a href="login.html" class="gia-login"> Iniciar sesión </a>
 
-            <a href="#bajar" class="gia-register" >
-              ¿Sos una institucion?
-            </a>
+            <a href="#bajar" class="gia-register"> ¿Sos una institucion? </a>
           </div>
         </div>
       </div>
     </nav>
 
-
-
-
-
-
-        <!-- ==================================================
+    <!-- ==================================================
      HERO PRINCIPAL
      --------------------------------------------------
      Objetivo:
@@ -122,115 +119,83 @@ el index solo redirigue el texto que escribio el usuario
      - Métricas de confianza
 =================================================== -->
 
-<section class="hero-gia">
-
-    <!--
+    <section class="hero-gia">
+      <!--
         Capa de superposición.
         Mejora la legibilidad del texto
         sin ocultar completamente la imagen.
     -->
 
-    <div class="hero-overlay"></div>
+      <div class="hero-overlay"></div>
 
-    <!--
+      <!--
         Container Bootstrap.
         Se encarga únicamente del ancho
         general del contenido.
     -->
 
-    <div class="container">
-
+      <div class="container">
         <!--
             Bloque de contenido del Hero.
             Aquí se posiciona todo el texto.
         -->
 
         <div class="hero-contenido">
+          <!-- Etiqueta superior -->
 
-            <!-- Etiqueta superior -->
+          <span class="hero-badge"> Guía de Ingreso Académico </span>
 
-            <span class="hero-badge">
+          <!-- Título principal -->
 
-                Guía de Ingreso Académico
+          <h1 class="hero-titulo">
+            Tu guía para ingresar al nivel superior sin perderte en el camino.
+          </h1>
 
-            </span>
+          <!-- Descripción -->
 
-            <!-- Título principal -->
+          <p class="hero-descripcion">
+            Comprendé términos académicos, descubrí instituciones y encontrá
+            toda la información necesaria para comenzar tu carrera
+          </p>
 
-            <h1 class="hero-titulo">
+          <!-- Botones principales -->
 
-                Tu guía para ingresar al nivel superior
-                sin perderte en el camino.
+          <div class="hero-botones">
+            <a href="#guia" class="btn-gia-principal"> Explorar guía </a>
 
-            </h1>
+            <a href="resultados.html" class="btn-gia-secundario">
+              Buscar institución
+            </a>
+          </div>
 
-            <!-- Descripción -->
+          <!-- ==================================================
+     BENEFICIOS PRINCIPALES
+=================================================== -->
 
-            <p class="hero-descripcion">
+          <div class="hero-beneficios">
+            <div class="beneficio">
+              <span class="beneficio-icono">✓</span>
 
-                Comprendé términos académicos,
-                descubrí instituciones y encontrá toda
-                la información necesaria para comenzar
-                tu carrera
-
-            </p>
-
-            <!-- Botones principales -->
-
-            <div class="hero-botones">
-
-                <a href="#guia" class="btn-gia-principal">
-
-                    Explorar guía
-
-                </a>
-
-                <a href="resultados.html"
-                   class="btn-gia-secundario">
-
-                    Buscar institución
-
-                </a>
-
+              <span> Información clara </span>
             </div>
 
-            <!-- Estadísticas de confianza -->
+            <div class="beneficio">
+              <span class="beneficio-icono">✓</span>
 
-            <div class="hero-estadisticas">
-
-                <div class="estadistica">
-
-                    <strong>100+</strong>
-
-                    <span>Instituciones</span>
-
-                </div>
-
-                <div class="estadistica">
-
-                    <strong>500+</strong>
-
-                    <span>Recursos</span>
-
-                </div>
-
-                <div class="estadistica">
-
-                    <strong>Miles</strong>
-
-                    <span>Estudiantes</span>
-
-                </div>
-
+              <span> Instituciones verificadas </span>
             </div>
 
+            <div class="beneficio">
+              <span class="beneficio-icono">✓</span>
+
+              <span> Acceso gratuito </span>
+            </div>
+          </div>
         </div>
+      </div>
+    </section>
 
-    </div>
-
-</section>
-
-<!-- ==================================================
+    <!-- ==================================================
      SECCIÓN DE PROPUESTA DE VALOR
      --------------------------------------------------
      Objetivo:
@@ -241,131 +206,71 @@ el index solo redirigue el texto que escribio el usuario
      de presentar la guía interactiva.
 =================================================== -->
 
-<section class="valor-gia">
-
-    <div class="container">
-
+    <section class="valor-gia">
+      <div class="container">
         <!-- Encabezado -->
 
         <div class="valor-header">
+          <span class="valor-badge"> ¿Por qué GIA? </span>
 
-            <span class="valor-badge">
+          <h2 class="valor-titulo">
+            Todo lo que necesitás para dar el salto al nivel superior en un solo
+            lugar
+          </h2>
 
-                ¿Por qué GIA?
-
-            </span>
-
-            <h2 class="valor-titulo">
-
-                Todo lo que necesitás para dar el salto
-                al nivel superior en un solo lugar
-
-            </h2>
-
-            <p class="valor-descripcion">
-
-                Reunimos información académica,
-                conceptos fundamentales y perfiles
-                institucionales para ayudarte a tomar
-                decisiones con mayor seguridad.
-
-            </p>
-
+          <p class="valor-descripcion">
+            Reunimos información académica, conceptos fundamentales y perfiles
+            institucionales para ayudarte a tomar decisiones con mayor
+            seguridad.
+          </p>
         </div>
-
 
         <!-- Tarjetas de beneficios -->
 
         <div class="valor-grid">
+          <!-- Tarjeta 1 -->
 
-            <!-- Tarjeta 1 -->
+          <article class="valor-card">
+            <div class="valor-icono">📖</div>
 
-            <article class="valor-card">
+            <h3>Guía clara</h3>
 
-                <div class="valor-icono">
+            <p>
+              Entendé conceptos universitarios sin tecnicismos ni explicaciones
+              confusas.
+            </p>
+          </article>
 
-                    📖
+          <!-- Tarjeta 2 -->
 
-                </div>
+          <article class="valor-card">
+            <div class="valor-icono">🏫</div>
 
-                <h3>
+            <h3>Instituciones verificadas</h3>
 
-                    Guía clara
+            <p>
+              Accedé a información institucional organizada y actualizada desde
+              un único lugar.
+            </p>
+          </article>
 
-                </h3>
+          <!-- Tarjeta 3 -->
 
-                <p>
+          <article class="valor-card">
+            <div class="valor-icono">🔍</div>
 
-                    Entendé conceptos universitarios
-                    sin tecnicismos ni explicaciones
-                    confusas.
+            <h3>Información centralizada</h3>
 
-                </p>
-
-            </article>
-
-
-            <!-- Tarjeta 2 -->
-
-            <article class="valor-card">
-
-                <div class="valor-icono">
-
-                    🏫
-
-                </div>
-
-                <h3>
-
-                    Instituciones verificadas
-
-                </h3>
-
-                <p>
-
-                    Accedé a información institucional
-                    organizada y actualizada desde
-                    un único lugar.
-
-                </p>
-
-            </article>
-
-
-            <!-- Tarjeta 3 -->
-
-            <article class="valor-card">
-
-                <div class="valor-icono">
-
-                    🔍
-
-                </div>
-
-                <h3>
-
-                    Información centralizada
-
-                </h3>
-
-                <p>
-
-                    Encontrá carreras, trámites,
-                    recursos y documentación sin
-                    perder tiempo buscando.
-
-                </p>
-
-            </article>
-
+            <p>
+              Encontrá carreras, trámites, recursos y documentación sin perder
+              tiempo buscando.
+            </p>
+          </article>
         </div>
+      </div>
+    </section>
 
-    </div>
-
-</section>
-
-
-<!-- ==================================================
+    <!-- ==================================================
      GUÍA INTERACTIVA PARA INGRESANTES
      ==================================================
 
@@ -384,11 +289,8 @@ el index solo redirigue el texto que escribio el usuario
 
 =================================================== -->
 
-<section
-class="gia-guia"
-id="guia">
-
-    <!--
+    <section class="gia-guia" id="guia">
+      <!--
     ==================================================
     Contenedor principal
 
@@ -398,194 +300,100 @@ id="guia">
     ==================================================
     -->
 
-    <div class="container">
-
-
+      <div class="container">
         <!-- ==========================================
              CABECERA DE LA GUÍA
         =========================================== -->
 
         <header class="gia-guia-header">
+          <!-- Pequeña etiqueta superior -->
 
+          <span class="gia-guia-badge"> Guía Interactiva </span>
 
-            <!-- Pequeña etiqueta superior -->
+          <!-- Título principal -->
 
-            <span class="gia-guia-badge">
+          <h2 class="gia-guia-titulo">
+            Todo lo que necesitás saber para comenzar tu vida universitaria.
+          </h2>
 
-                Guía Interactiva
+          <!-- Descripción -->
 
-            </span>
-
-
-            <!-- Título principal -->
-
-            <h2 class="gia-guia-titulo">
-
-                Todo lo que necesitás saber para comenzar
-                tu vida universitaria.
-
-            </h2>
-
-
-            <!-- Descripción -->
-
-            <p class="gia-guia-descripcion">
-
-                Sabemos que el paso desde la escuela
-                secundaria hacia una institución de nivel
-                superior puede resultar confuso.
-
-                En esta guía vas a encontrar explicaciones
-                simples sobre los conceptos más importantes
-                que vas a utilizar durante toda tu carrera.
-
-            </p>
-
-
+          <p class="gia-guia-descripcion">
+            Sabemos que el paso desde la escuela secundaria hacia una
+            institución de nivel superior puede resultar confuso. En esta guía
+            vas a encontrar explicaciones simples sobre los conceptos más
+            importantes que vas a utilizar durante toda tu carrera.
+          </p>
         </header>
-
 
         <!-- ==========================================
              INFORMACIÓN GENERAL
         =========================================== -->
 
         <section class="gia-guia-meta">
+          <!-- Tiempo estimado -->
 
+          <article class="gia-guia-meta-item">
+            <span class="gia-meta-numero"> 12 min </span>
 
-            <!-- Tiempo estimado -->
+            <span class="gia-meta-texto"> Tiempo estimado </span>
+          </article>
 
-            <article class="gia-guia-meta-item">
+          <!-- Cantidad de conceptos -->
 
-                <span class="gia-meta-numero">
+          <article class="gia-guia-meta-item">
+            <span class="gia-meta-numero"> 20+ </span>
 
-                    12 min
+            <span class="gia-meta-texto"> Conceptos </span>
+          </article>
 
-                </span>
+          <!-- Cantidad de módulos -->
 
-                <span class="gia-meta-texto">
+          <article class="gia-guia-meta-item">
+            <span class="gia-meta-numero"> 4 </span>
 
-                    Tiempo estimado
+            <span class="gia-meta-texto"> Módulos </span>
+          </article>
 
-                </span>
+          <!-- Actualización -->
 
-            </article>
+          <article class="gia-guia-meta-item">
+            <span class="gia-meta-numero"> 2026 </span>
 
-
-            <!-- Cantidad de conceptos -->
-
-            <article class="gia-guia-meta-item">
-
-                <span class="gia-meta-numero">
-
-                    20+
-
-                </span>
-
-                <span class="gia-meta-texto">
-
-                    Conceptos
-
-                </span>
-
-            </article>
-
-
-            <!-- Cantidad de módulos -->
-
-            <article class="gia-guia-meta-item">
-
-                <span class="gia-meta-numero">
-
-                    4
-
-                </span>
-
-                <span class="gia-meta-texto">
-
-                    Módulos
-
-                </span>
-
-            </article>
-
-
-            <!-- Actualización -->
-
-            <article class="gia-guia-meta-item">
-
-                <span class="gia-meta-numero">
-
-                    2026
-
-                </span>
-
-                <span class="gia-meta-texto">
-
-                    Última actualización
-
-                </span>
-
-            </article>
-
-
+            <span class="gia-meta-texto"> Última actualización </span>
+          </article>
         </section>
-
 
         <!-- ==========================================
              INTRODUCCIÓN
         =========================================== -->
 
         <section class="gia-guia-introduccion">
+          <h3>Bienvenido.</h3>
 
+          <p>
+            Si esta es tu primera experiencia dentro de una institución
+            terciaria o universitaria, probablemente escuches palabras como
+            <strong>regularidad</strong>, <strong>correlatividades</strong>,
+            <strong>promoción</strong>,
+            <strong>mesa de examen</strong>
+            o
+            <strong>campus virtual</strong>.
+          </p>
 
-            <h3>
+          <p>
+            Es completamente normal no conocer estos términos. Por ese motivo
+            desarrollamos esta guía, para acompañarte paso a paso y ayudarte a
+            comprender cómo funciona el nivel superior antes de comenzar tu
+            carrera.
+          </p>
 
-                Bienvenido.
+          <!-- Botón de inicio -->
 
-            </h3>
-
-
-            <p>
-
-                Si esta es tu primera experiencia dentro
-                de una institución terciaria o universitaria,
-                probablemente escuches palabras como
-                <strong>regularidad</strong>,
-                <strong>correlatividades</strong>,
-                <strong>promoción</strong>,
-                <strong>mesa de examen</strong>
-                o
-                <strong>campus virtual</strong>.
-
-            </p>
-
-
-            <p>
-
-                Es completamente normal no conocer estos
-                términos.
-
-                Por ese motivo desarrollamos esta guía,
-                para acompañarte paso a paso y ayudarte
-                a comprender cómo funciona el nivel superior
-                antes de comenzar tu carrera.
-
-            </p>
-
-
-            <!-- Botón de inicio -->
-
-            <button
-            type="button"
-            class="gia-guia-btn-comenzar">
-
-                Comenzar recorrido
-
-            </button>
-
-
+          <button type="button" class="gia-guia-btn-comenzar">
+            Comenzar recorrido
+          </button>
         </section>
-
 
         <!-- ==========================================
              CONTENEDOR DE MÓDULOS
@@ -596,10 +404,8 @@ id="guia">
 
         =========================================== -->
 
-        <section
-        class="gia-guia-modulos">
-
-        <!-- ==================================================
+        <section class="gia-guia-modulos">
+          <!-- ==================================================
      MÓDULOS DE LA GUÍA
 
      Cada tarjeta representa un recorrido temático.
@@ -609,329 +415,200 @@ id="guia">
      el contenido sin abandonar la página.
 =================================================== -->
 
-<div class="gia-guia-grid">
-
-
-    <!-- ==========================================
+          <div class="gia-guia-grid">
+            <!-- ==========================================
          MÓDULO 01
     =========================================== -->
 
-    <article
-        class="gia-guia-card"
-        data-modulo="antes-ingresar"
-        data-color="azul"
-        data-nivel="basico"
-        data-conceptos="4"
-        data-tiempo="4">
+            <article
+              class="gia-guia-card"
+              data-modulo="antes-ingresar"
+              data-color="azul"
+              data-nivel="basico"
+              data-conceptos="4"
+              data-tiempo="4"
+            >
+              <header class="gia-guia-card-header">
+                <div class="gia-guia-icono icono-azul">
+                  <i class="bi bi-mortarboard-fill"></i>
+                </div>
 
-        <header class="gia-guia-card-header">
+                <span class="gia-guia-nivel"> Nivel básico </span>
+              </header>
 
-            <div class="gia-guia-icono icono-azul">
+              <h3>Antes de ingresar</h3>
 
-                <i class="bi bi-mortarboard-fill"></i>
+              <p>
+                Conocé todo lo necesario antes de comenzar una carrera y
+                preparate para el ingreso.
+              </p>
 
-            </div>
+              <ul class="gia-guia-lista">
+                <li>Elegir una carrera</li>
+                <li>Elegir institución</li>
+                <li>Inscripción</li>
+                <li>Curso de ingreso</li>
+              </ul>
 
-            <span class="gia-guia-nivel">
+              <div class="gia-guia-info">
+                <span>4 conceptos</span>
 
-                Nivel básico
+                <span>≈ 4 min</span>
+              </div>
 
-            </span>
+              <div class="gia-guia-progress">
+                <div class="gia-guia-progress-fill"></div>
+              </div>
 
-        </header>
+              <button class="gia-guia-card-btn">Explorar módulo →</button>
+            </article>
 
-
-        <h3>
-
-            Antes de ingresar
-
-        </h3>
-
-        <p>
-
-            Conocé todo lo necesario antes de comenzar
-            una carrera y preparate para el ingreso.
-
-        </p>
-
-
-        <ul class="gia-guia-lista">
-
-            <li>Elegir una carrera</li>
-            <li>Elegir institución</li>
-            <li>Inscripción</li>
-            <li>Curso de ingreso</li>
-
-        </ul>
-
-
-        <div class="gia-guia-info">
-
-            <span>4 conceptos</span>
-
-            <span>≈ 4 min</span>
-
-        </div>
-
-
-        <div class="gia-guia-progress">
-
-            <div class="gia-guia-progress-fill"></div>
-
-        </div>
-
-
-        <button class="gia-guia-card-btn">
-
-            Explorar módulo →
-
-        </button>
-
-    </article>
-
-
-    <!-- ==========================================
+            <!-- ==========================================
          MÓDULO 02
     =========================================== -->
 
-    <article
-        class="gia-guia-card"
-        data-modulo="primeros-dias"
-        data-color="naranja"
-        data-nivel="basico"
-        data-conceptos="5"
-        data-tiempo="5">
+            <article
+              class="gia-guia-card"
+              data-modulo="primeros-dias"
+              data-color="naranja"
+              data-nivel="basico"
+              data-conceptos="5"
+              data-tiempo="5"
+            >
+              <header class="gia-guia-card-header">
+                <div class="gia-guia-icono icono-naranja">
+                  <i class="bi bi-journal-bookmark-fill"></i>
+                </div>
 
-        <header class="gia-guia-card-header">
+                <span class="gia-guia-nivel"> Nivel básico </span>
+              </header>
 
-            <div class="gia-guia-icono icono-naranja">
+              <h3>Primeros días</h3>
 
-                <i class="bi bi-journal-bookmark-fill"></i>
+              <p>
+                Descubrí cómo funciona una institución durante las primeras
+                semanas de cursado.
+              </p>
 
-            </div>
+              <ul class="gia-guia-lista">
+                <li>Materias</li>
+                <li>Regularidad</li>
+                <li>Campus virtual</li>
+                <li>Horarios</li>
+                <li>Comisiones</li>
+              </ul>
 
-            <span class="gia-guia-nivel">
+              <div class="gia-guia-info">
+                <span>5 conceptos</span>
 
-                Nivel básico
+                <span>≈ 5 min</span>
+              </div>
 
-            </span>
+              <div class="gia-guia-progress">
+                <div class="gia-guia-progress-fill"></div>
+              </div>
 
-        </header>
+              <button class="gia-guia-card-btn">Explorar módulo →</button>
+            </article>
 
-
-        <h3>
-
-            Primeros días
-
-        </h3>
-
-        <p>
-
-            Descubrí cómo funciona una institución
-            durante las primeras semanas de cursado.
-
-        </p>
-
-
-        <ul class="gia-guia-lista">
-
-            <li>Materias</li>
-            <li>Regularidad</li>
-            <li>Campus virtual</li>
-            <li>Horarios</li>
-            <li>Comisiones</li>
-
-        </ul>
-
-
-        <div class="gia-guia-info">
-
-            <span>5 conceptos</span>
-
-            <span>≈ 5 min</span>
-
-        </div>
-
-
-        <div class="gia-guia-progress">
-
-            <div class="gia-guia-progress-fill"></div>
-
-        </div>
-
-
-        <button class="gia-guia-card-btn">
-
-            Explorar módulo →
-
-        </button>
-
-    </article>
-
-
-    <!-- ==========================================
+            <!-- ==========================================
          MÓDULO 03
     =========================================== -->
 
-    <article
-        class="gia-guia-card"
-        data-modulo="durante-cursada"
-        data-color="verde"
-        data-nivel="intermedio"
-        data-conceptos="6"
-        data-tiempo="7">
+            <article
+              class="gia-guia-card"
+              data-modulo="durante-cursada"
+              data-color="verde"
+              data-nivel="intermedio"
+              data-conceptos="6"
+              data-tiempo="7"
+            >
+              <header class="gia-guia-card-header">
+                <div class="gia-guia-icono icono-verde">
+                  <i class="bi bi-pencil-square"></i>
+                </div>
 
-        <header class="gia-guia-card-header">
+                <span class="gia-guia-nivel"> Nivel intermedio </span>
+              </header>
 
-            <div class="gia-guia-icono icono-verde">
+              <h3>Durante la cursada</h3>
 
-                <i class="bi bi-pencil-square"></i>
+              <p>
+                Comprendé los conceptos académicos que utilizarás durante toda
+                tu carrera.
+              </p>
 
-            </div>
+              <ul class="gia-guia-lista">
+                <li>Parciales</li>
+                <li>Finales</li>
+                <li>Promoción</li>
+                <li>Recuperatorios</li>
+                <li>Correlatividades</li>
+                <li>Programa</li>
+              </ul>
 
-            <span class="gia-guia-nivel">
+              <div class="gia-guia-info">
+                <span>6 conceptos</span>
 
-                Nivel intermedio
+                <span>≈ 7 min</span>
+              </div>
 
-            </span>
+              <div class="gia-guia-progress">
+                <div class="gia-guia-progress-fill"></div>
+              </div>
 
-        </header>
+              <button class="gia-guia-card-btn">Explorar módulo →</button>
+            </article>
 
-
-        <h3>
-
-            Durante la cursada
-
-        </h3>
-
-        <p>
-
-            Comprendé los conceptos académicos que
-            utilizarás durante toda tu carrera.
-
-        </p>
-
-
-        <ul class="gia-guia-lista">
-
-            <li>Parciales</li>
-            <li>Finales</li>
-            <li>Promoción</li>
-            <li>Recuperatorios</li>
-            <li>Correlatividades</li>
-            <li>Programa</li>
-
-        </ul>
-
-
-        <div class="gia-guia-info">
-
-            <span>6 conceptos</span>
-
-            <span>≈ 7 min</span>
-
-        </div>
-
-
-        <div class="gia-guia-progress">
-
-            <div class="gia-guia-progress-fill"></div>
-
-        </div>
-
-
-        <button class="gia-guia-card-btn">
-
-            Explorar módulo →
-
-        </button>
-
-    </article>
-
-
-    <!-- ==========================================
+            <!-- ==========================================
          MÓDULO 04
     =========================================== -->
 
-    <article
-        class="gia-guia-card"
-        data-modulo="vida-universitaria"
-        data-color="violeta"
-        data-nivel="basico"
-        data-conceptos="5"
-        data-tiempo="5">
+            <article
+              class="gia-guia-card"
+              data-modulo="vida-universitaria"
+              data-color="violeta"
+              data-nivel="basico"
+              data-conceptos="5"
+              data-tiempo="5"
+            >
+              <header class="gia-guia-card-header">
+                <div class="gia-guia-icono icono-violeta">
+                  <i class="bi bi-globe-americas"></i>
+                </div>
 
-        <header class="gia-guia-card-header">
+                <span class="gia-guia-nivel"> Nivel básico </span>
+              </header>
 
-            <div class="gia-guia-icono icono-violeta">
+              <h3>Vida universitaria</h3>
 
-                <i class="bi bi-globe-americas"></i>
+              <p>
+                Aprovechá los recursos y servicios que ofrecen las instituciones
+                durante tu carrera.
+              </p>
 
-            </div>
+              <ul class="gia-guia-lista">
+                <li>Becas</li>
+                <li>Biblioteca</li>
+                <li>Tutorías</li>
+                <li>Trámites</li>
+                <li>Centro de estudiantes</li>
+              </ul>
 
-            <span class="gia-guia-nivel">
+              <div class="gia-guia-info">
+                <span>5 conceptos</span>
 
-                Nivel básico
+                <span>≈ 5 min</span>
+              </div>
 
-            </span>
+              <div class="gia-guia-progress">
+                <div class="gia-guia-progress-fill"></div>
+              </div>
 
-        </header>
-
-
-        <h3>
-
-            Vida universitaria
-
-        </h3>
-
-        <p>
-
-            Aprovechá los recursos y servicios que
-            ofrecen las instituciones durante tu carrera.
-
-        </p>
-
-
-        <ul class="gia-guia-lista">
-
-            <li>Becas</li>
-            <li>Biblioteca</li>
-            <li>Tutorías</li>
-            <li>Trámites</li>
-            <li>Centro de estudiantes</li>
-
-        </ul>
-
-
-        <div class="gia-guia-info">
-
-            <span>5 conceptos</span>
-
-            <span>≈ 5 min</span>
-
-        </div>
-
-
-        <div class="gia-guia-progress">
-
-            <div class="gia-guia-progress-fill"></div>
-
-        </div>
-
-
-        <button class="gia-guia-card-btn">
-
-            Explorar módulo →
-
-        </button>
-
-    </article>
-
-</div>
-
-
+              <button class="gia-guia-card-btn">Explorar módulo →</button>
+            </article>
+          </div>
         </section>
-
 
         <!-- ==========================================
              PIE DE LA GUÍA
@@ -942,60 +619,26 @@ id="guia">
 
         =========================================== -->
 
-        <footer
-        class="gia-guia-footer">
+        <footer class="gia-guia-footer">
+          <h3>¿No sabés por dónde empezar?</h3>
 
+          <p>
+            GIA recomienda comenzar por el módulo
 
-            <h3>
+            <strong> Antes de ingresar </strong>
 
-                ¿No sabés por dónde empezar?
+            para comprender los conceptos básicos antes de avanzar hacia temas
+            más específicos.
+          </p>
 
-            </h3>
-
-
-            <p>
-
-                GIA recomienda comenzar por el módulo
-
-                <strong>
-
-                    Antes de ingresar
-
-                </strong>
-
-                para comprender los conceptos básicos
-                antes de avanzar hacia temas más específicos.
-
-            </p>
-
-
-            <button
-            type="button"
-            class="gia-guia-btn-footer">
-
-                Empezar ahora
-
-            </button>
-
-
+          <button type="button" class="gia-guia-btn-footer">
+            Empezar ahora
+          </button>
         </footer>
+      </div>
+    </section>
 
-
-    </div>
-
-</section>
-
-
-
-
-
-
-
-
-
-
-
-<!-- ==================================================
+    <!-- ==================================================
      FOOTER PRINCIPAL DE GIA
      --------------------------------------------------
      Footer global reutilizable en toda la plataforma.
@@ -1007,218 +650,138 @@ id="guia">
      - Mostrar información de contacto.
 =================================================== -->
 
-<footer class="footer-gia">
-
-    <!-- ==========================================
+    <footer class="footer-gia">
+      <!-- ==========================================
          LLAMADO A LA ACCIÓN PARA INSTITUCIONES
     =========================================== -->
 
-    <section class="footer-cta" id="bajar">
-
+      <section class="footer-cta" id="bajar">
         <div class="container">
+          <div class="footer-cta-contenido">
+            <div>
+              <span class="footer-cta-etiqueta">
+                Para instituciones educativas
+              </span>
 
-            <div class="footer-cta-contenido">
+              <h2 class="footer-cta-titulo">¿Sos una institución?</h2>
 
-                <div>
-
-                    <span class="footer-cta-etiqueta">
-                        Para instituciones educativas
-                    </span>
-
-                    <h2 class="footer-cta-titulo">
-                        ¿Sos una institución?
-                    </h2>
-
-                    <p class="footer-cta-descripcion">
-                        Registrate en GIA y creá un perfil institucional
-                        para compartir información académica, trámites,
-                        carreras y recursos con futuros estudiantes.
-                    </p>
-
-                </div>
-
-                <a href="register.html"
-                   class="footer-cta-boton">
-
-                    Registrar institución
-
-                </a>
-
+              <p class="footer-cta-descripcion">
+                Registrate en GIA y creá un perfil institucional para compartir
+                información académica, trámites, carreras y recursos con futuros
+                estudiantes.
+              </p>
             </div>
 
+            <a href="register.html" class="footer-cta-boton">
+              Registrar institución
+            </a>
+          </div>
         </div>
+      </section>
 
-    </section>
-
-
-    <!-- ==========================================
+      <!-- ==========================================
          CONTENIDO PRINCIPAL DEL FOOTER
     =========================================== -->
 
-    <div class="footer-principal">
-
+      <div class="footer-principal">
         <div class="container">
-
-            <div class="footer-grid">
-
-                <!-- ==========================
+          <div class="footer-grid">
+            <!-- ==========================
                      COLUMNA MARCA
                 =========================== -->
 
-                <div class="footer-columna footer-marca">
+            <div class="footer-columna footer-marca">
+              <img
+                src="assets/img/logo-GIA.png"
+                alt="Logo GIA"
+                class="footer-logo"
+              />
 
-                    <img
-                        src="assets/img/logo-GIA.png"
-                        alt="Logo GIA"
-                        class="footer-logo"
-                    >
+              <p class="footer-texto">
+                Facilitamos el acceso al nivel terciario y universitario
+                mediante información académica clara, accesible y centralizada.
+              </p>
+            </div>
 
-                    <p class="footer-texto">
-
-                        Facilitamos el acceso al nivel
-                        terciario y universitario mediante
-                        información académica clara,
-                        accesible y centralizada.
-
-                    </p>
-
-                </div>
-
-
-                <!-- ==========================
+            <!-- ==========================
                      NAVEGACIÓN
                 =========================== -->
 
-                <div class="footer-columna">
+            <div class="footer-columna">
+              <h3 class="footer-titulo">Navegación</h3>
 
-                    <h3 class="footer-titulo">
-                        Navegación
-                    </h3>
+              <ul class="footer-links">
+                <li>
+                  <a href="index.html"> Inicio </a>
+                </li>
 
-                    <ul class="footer-links">
+                <li>
+                  <a href="#guia"> Guía </a>
+                </li>
+              </ul>
+            </div>
 
-                        <li>
-                            <a href="index.html">
-                                Inicio
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#guia">
-                                Guía
-                            </a>
-                        </li>
-                    </ul>
-
-                </div>
-
-
-                <!-- ==========================
+            <!-- ==========================
                      RECURSOS
                 =========================== -->
 
-                <div class="footer-columna">
+            <div class="footer-columna">
+              <h3 class="footer-titulo">Recursos</h3>
 
-                    <h3 class="footer-titulo">
-                        Recursos
-                    </h3>
+              <ul class="footer-links">
+                <li>
+                  <a href="#"> Regularidad </a>
+                </li>
 
-                    <ul class="footer-links">
+                <li>
+                  <a href="#"> Correlatividades </a>
+                </li>
 
-                        <li>
-                            <a href="#">
-                                Regularidad
-                            </a>
-                        </li>
+                <li>
+                  <a href="#"> Inscripciones </a>
+                </li>
 
-                        <li>
-                            <a href="#">
-                                Correlatividades
-                            </a>
-                        </li>
+                <li>
+                  <a href="#"> Becas </a>
+                </li>
+              </ul>
+            </div>
 
-                        <li>
-                            <a href="#">
-                                Inscripciones
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#">
-                                Becas
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-                <!-- ==========================
+            <!-- ==========================
                      CONTACTO
                 =========================== -->
 
-                <div class="footer-columna">
+            <div class="footer-columna">
+              <h3 class="footer-titulo">Contacto</h3>
 
-                    <h3 class="footer-titulo">
-                        Contacto
-                    </h3>
+              <ul class="footer-links">
+                <li>
+                  <a href="mailto:contacto@gia.com"> contacto@gia.com </a>
+                </li>
 
-                    <ul class="footer-links">
-
-                        <li>
-                            <a href="mailto:contacto@gia.com">
-                                contacto@gia.com
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#">
-                                Centro de ayuda
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </div>
-
+                <li>
+                  <a href="#"> Centro de ayuda </a>
+                </li>
+              </ul>
             </div>
-
+          </div>
         </div>
+      </div>
 
-    </div>
-
-
-    <!-- ==========================================
+      <!-- ==========================================
          COPYRIGHT
     =========================================== -->
 
-    <div class="footer-bottom">
-
+      <div class="footer-bottom">
         <div class="container">
-
-            <p>
-
-                © 2026 GIA · Gestor Inteligente Académico.
-                Todos los derechos reservados.
-
-            </p>
-
+          <p>
+            © 2026 GIA · Gestor Inteligente Académico. Todos los derechos
+            reservados.
+          </p>
         </div>
+      </div>
+    </footer>
 
-    </div>
-
-</footer>
-
-
-
-
-
-
- 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
-
-
-    

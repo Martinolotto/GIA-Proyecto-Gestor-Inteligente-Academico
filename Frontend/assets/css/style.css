@@ -7,9 +7,50 @@
     box-sizing:border-box;
 }
 
+/* ==================================================
+   CONFIGURACIÓN GENERAL DEL SITIO
+   --------------------------------------------------
+   Se define un fondo global reutilizable para todo
+   el sitio.
+
+   Esto permite que todas las secciones compartan
+   la misma identidad visual sin repetir imágenes.
+=================================================== */
+
 body{
+
     font-family:'Plus Jakarta Sans',sans-serif;
+
+    background:
+
+        #F4F6F9
+
+        url("../img/background-index.png")
+
+        center top
+
+        repeat-y;
+
+    background-size:cover;
+
+    color:#223047;
 }
+/* ==================================================
+   CONTENEDORES PRINCIPALES
+
+   Evita que las secciones agreguen fondos blancos
+   sólidos que oculten el fondo global.
+=================================================== */
+
+section{
+
+    position:relative;
+
+    z-index:1;
+}
+
+
+
 
 /* NAVBAR */
 .gia-navbar{
@@ -81,7 +122,9 @@ body{
     transform:scaleX(1);
 }
 
-/* SEARCH */
+/* ==================================================
+   BUSCADOR DEL NAVBAR
+=================================================== */
 
 .gia-search{
 
@@ -90,7 +133,7 @@ body{
     align-items:center;
 
     width:100%;
-    max-width:480px;
+    max-width:520px;
 
     height:46px;
 
@@ -100,7 +143,7 @@ body{
 
     border-radius:14px;
 
-    padding:0 14px;
+    overflow:hidden;
 
     transition:.25s;
 }
@@ -110,7 +153,29 @@ body{
     border-color:#F96B25;
 
     box-shadow:
-    0 0 0 4px rgba(249,107,37,.12);
+        0 0 0 4px rgba(249,107,37,.12);
+}
+.gia-search input{
+
+    flex:1;
+
+    min-width:0;
+
+    border:none;
+    outline:none;
+
+    background:transparent;
+
+    color:white;
+
+    font-size:.92rem;
+
+    padding-right:12px;
+}
+
+.gia-search input::placeholder{
+
+    color:#8d98a3;
 }
 
 .gia-search-icon{
@@ -122,29 +187,43 @@ body{
 
     stroke-width:2;
 
-    margin-right:10px;
+    margin:0 12px;
 
     flex-shrink:0;
 }
 
-.gia-search input{
+/* ==================================================
+   BOTÓN DEL BUSCADOR
+=================================================== */
 
-    width:100%;
+.gia-search-btn{
+
+    height:100%;
 
     border:none;
-    outline:none;
 
-    background:transparent;
+    padding:0 22px;
+
+    background:#F96B25;
 
     color:white;
 
-    font-size:.92rem;
+    font-weight:700;
+
+    font-size:.88rem;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    flex-shrink:0;
 }
 
-.gia-search input::placeholder{
+.gia-search-btn:hover{
 
-    color:#8d98a3;
+    background:#EA5F1D;
 }
+
 
 /* TRUST */
 
