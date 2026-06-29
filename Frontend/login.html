@@ -1,24 +1,15 @@
-<!-- formulario para login o registro 
- para no hacer uno para registro y otro para log in se podria diseñár algo como una sola tarjeta central, pero que tenga dos pestañas de boodstrap
- una que muestre el formulario para iniciar sesion
- otro para el registrar institución-->
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>GIA | Iniciar sesión</title>
-
     <link rel="icon" type="image/png" href="assets/img/logo-gia-circular.png" />
-
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-
     <link rel="stylesheet" href="assets/css/auth.css" />
-
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
@@ -28,7 +19,6 @@
       rel="stylesheet"
     />
   </head>
-
   <body>
     <div class="login-page d-flex align-items-center justify-content-center">
       <div class="container">
@@ -36,7 +26,6 @@
           <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
             <div class="login-card p-4 p-md-5">
               <div class="card-header-line"></div>
-              <!-- Logo -->
 
               <div class="text-center mb-4">
                 <a href="index.html">
@@ -47,54 +36,49 @@
                   />
                 </a>
                 <h1 class="login-title">Bienvenido a GIA</h1>
-
                 <p class="login-subtitle">Gestor Inteligente Académico</p>
               </div>
 
-              <!-- Formulario -->
+              <div
+                id="alerta-error"
+                class="alert alert-danger d-none"
+                role="alert"
+              ></div>
 
-              <form>
-                <!-- Correo -->
-
+              <form id="form-login">
                 <div class="mb-3">
-                  <label for="email" class="form-label">
-                    Correo electrónico
-                  </label>
-
+                  <label for="email" class="form-label"
+                    >Correo electrónico</label
+                  >
                   <div class="input-group custom-input-group">
                     <span class="input-group-text">
                       <i class="bi bi-envelope-fill"></i>
                     </span>
-
                     <input
                       type="email"
                       class="form-control"
                       id="email"
                       placeholder="Ingrese su correo electrónico"
+                      required
                     />
                   </div>
                 </div>
 
-                <!-- Contraseña -->
-
                 <div class="mb-3">
-                  <label for="password" class="form-label"> Contraseña </label>
-
+                  <label for="password" class="form-label">Contraseña</label>
                   <div class="input-group custom-input-group">
                     <span class="input-group-text">
                       <i class="bi bi-lock-fill"></i>
                     </span>
-
                     <input
                       type="password"
                       class="form-control"
                       id="password"
                       placeholder="Ingrese su contraseña"
+                      required
                     />
                   </div>
                 </div>
-
-                <!-- Recordarme -->
 
                 <div
                   class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2"
@@ -105,29 +89,27 @@
                       type="checkbox"
                       id="remember"
                     />
-
-                    <label class="form-check-label" for="remember">
-                      Recordarme
-                    </label>
+                    <label class="form-check-label" for="remember"
+                      >Recordarme</label
+                    >
                   </div>
-
-                  <a href="#" class="forgot-link"> ¿Olvidó su contraseña? </a>
+                  <a href="#" class="forgot-link">¿Olvidó su contraseña?</a>
                 </div>
 
-                <!-- Botón -->
-
-                <button type="submit" class="btn btn-login w-100">
+                <button
+                  type="submit"
+                  class="btn btn-login w-100"
+                  id="btn-login"
+                >
                   <i class="bi bi-box-arrow-in-right me-2"></i>
                   Iniciar sesión
                 </button>
 
-                <!-- Registro -->
-
                 <p class="register-text text-center mt-4 mb-0">
                   ¿No posee una cuenta?
-
-                  <a href="register.html"> Registrarse </a>
+                  <a href="register.html">Registrarse</a>
                 </p>
+
                 <div class="login-footer text-center mt-4">
                   © 2026 GIA - Gestor Inteligente Académico
                 </div>
@@ -139,5 +121,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/login.js"></script>
   </body>
 </html>

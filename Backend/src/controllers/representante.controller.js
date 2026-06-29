@@ -1,4 +1,4 @@
-import { TableRepresentante } from "../models/representante.js";
+import { TableRepresentante } from "../models/Representante.Model.js";
 
 let errorMessage = {
     message: "ocurrio un error intentalo nuevamente"
