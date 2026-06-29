@@ -1,9 +1,21 @@
 import { Router } from "express";
-import { cargarDatos, editarEstado, obtenerinstituciones } from "../controllers/Institucion.Controller.js";
+import {
+  obtenerinstituciones,
+  obtenerPendientes,
+  solicitarRegistro,
+  editarEstado,
+  obtenerInstitucionPorId,
+  editarInstitucion
+} from "../controllers/institucion.controller.js";
+import { verificarToken, soloAdmin, soloRepresentante } from "../middleware/auth.js";
 
 export const RouterInstitucion = Router();
 
 RouterInstitucion.get("/", obtenerinstituciones);
-RouterInstitucion.post("/register", cargarDatos);
-RouterInstitucion.patch("/:id/estado", editarEstado);
+RouterInstitucion.get("/:id", obtenerInstitucionPorId);
+RouterInstitucion.post("/solicitud", solicitarRegistro);
 
+RouterInstitucion.get("/admin/pendientes", verificarToken, soloAdmin, obtenerPendientes);
+RouterInstitucion.patch("/:id/estado", verificarToken, soloAdmin, editarEstado);
+
+RouterInstitucion.put("/:id", verificarToken, soloRepresentante, editarInstitucion);
