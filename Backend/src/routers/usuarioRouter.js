@@ -1,10 +1,9 @@
-//user router
-
 import { Router } from "express";
-import {obtnerUsuario, registrarUsuario, userSesion} from "../controllers/Usuario.Controller.js";
+import { obtnerUsuario, registrarUsuario, userSesion } from "../controllers/usuario.controller.js";
+import { verificarToken, soloAdmin } from "../middleware/auth.js";
 
 export const userRouter = Router();
 
-userRouter.get("/", obtnerUsuario);
+userRouter.get("/", verificarToken, soloAdmin, obtnerUsuario);
 userRouter.post("/register", registrarUsuario);
-userRouter.post("/login", userSesion)
+userRouter.post("/login", userSesion);
