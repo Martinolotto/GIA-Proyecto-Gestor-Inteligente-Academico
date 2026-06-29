@@ -141,3 +141,10 @@ function cerrarSesion() {
   localStorage.removeItem("usuario");
   window.location.href = "index.html";
 }
+
+window.addEventListener("pageshow", (e) => {
+  if (e.persisted) {
+    const token = localStorage.getItem("token");
+    if (!token) window.location.href = "index.html";
+  }
+});

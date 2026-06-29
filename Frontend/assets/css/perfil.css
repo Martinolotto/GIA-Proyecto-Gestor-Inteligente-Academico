@@ -1,0 +1,42 @@
+.perfil-hero {
+  background: linear-gradient(135deg, #1a1f3a 0%, #2d3561 100%);
+  color: white;
+  padding: 48px 0;
+}
+.perfil-logo {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 3px solid rgba(255,255,255,0.2);
+}
+.info-card {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+}
+.badge-estado {
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 0.8rem;
+}
+.panel-representante {
+  background: #f8faff;
+  border-left: 4px solid #4361ee;
+  border-radius: 0 12px 12px 0;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+.offcanvas-header { background: #1a1f3a; color: white; }
+.offcanvas-header .btn-close { filter: invert(1); }
+.nav-panel .nav-link {
+  color: #444;
+  border-radius: 8px;
+  padding: 10px 16px;
+  margin-bottom: 4px;
+}
+.nav-panel .nav-link:hover, .nav-panel .nav-link.active {
+  background: #eef1ff;
+  color: #4361ee;
+}
+.nav-panel .nav-link i { margin-right: 10px; }
