@@ -74,17 +74,19 @@
 
 }
 
-/* ==========================================================
-   CONTENEDOR PRINCIPAL
-========================================================== */
+/* ==================================================
+   CONTENEDOR PRINCIPAL DE LA GUÍA
+=================================================== */
 
 .gia-guia{
 
-    background:transparent;
+    position:relative;
 
     padding:120px 0;
-}
 
+    background:transparent;
+
+}
 /* ==========================================================
    CABECERA
 ========================================================== */
@@ -438,43 +440,31 @@
     margin-top:70px;
 
 }
-
-/* ==========================================================
-   TARJETAS DE MÓDULO
-========================================================== */
+/* ==================================================
+   TARJETA DE MÓDULO
+=================================================== */
 
 .gia-guia-card{
 
-    display:flex;
+    position:relative;
 
-    flex-direction:column;
+    background:rgba(255,255,255,.82);
 
-    border-radius:24px;
+    backdrop-filter:blur(12px);
 
-    padding:34px;
+    border:1px solid rgba(255,255,255,.65);
 
-    transition:
+    border-radius:26px;
 
-        transform .30s,
+    overflow:hidden;
 
-        box-shadow .30s,
-
-        border-color .30s;
+    transition:.35s;
 
     box-shadow:
 
-        var(--gia-shadow);
-
-    background:rgba(255,255,255,.78);
-
-backdrop-filter:blur(12px);
-
--webkit-backdrop-filter:blur(12px);
-
-border:1px solid rgba(255,255,255,.55);
+        0 20px 60px rgba(25,25,25,.05);
 
 }
-
 /* ==========================================================
    ENCABEZADO DE LA TARJETA
 ========================================================== */
