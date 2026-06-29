@@ -1,7 +1,266 @@
-    <!-- el dashboard con el menu de opciones para la institución 
-     debe tener un menu de hamburguesa que se le agregue al navbar o una sidebar para que navegue internamente
-     
-     dentro las herramientras necesarias para poder editar su perfil subir carreras 
-     
-     tambien puede ir algo para cerrar sesion-->
-     
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GIA | Panel de Control</title>
+    <link rel="icon" type="image/png" href="assets/img/logo-gia-circular.png" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/panel.css" />
+  </head>
+  <body>
+    <button class="sidebar-toggle" onclick="toggleSidebar()">
+      <i class="bi bi-list"></i>
+    </button>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-logo">
+        <img src="assets/img/logo-GIA.png" alt="GIA" />
+        <a href="index.html"><i class="bi bi-house me-1"></i> Ir al inicio</a>
+      </div>
+      <div class="sidebar-user">
+        <strong id="usuario-nombre">Administrador</strong>
+        <span id="usuario-email">admin@gia.com</span>
+      </div>
+      <nav class="sidebar-nav d-flex flex-column">
+        <a
+          href="#"
+          class="nav-link active"
+          onclick="cambiarSeccion('dashboard', this)"
+        >
+          <i class="bi bi-grid-fill"></i> Dashboard
+        </a>
+        <a
+          href="#"
+          class="nav-link"
+          onclick="cambiarSeccion('solicitudes', this)"
+        >
+          <i class="bi bi-hourglass-split"></i> Solicitudes pendientes
+          <span class="badge bg-warning text-dark ms-auto" id="badge-pendientes"
+            >0</span
+          >
+        </a>
+        <a
+          href="#"
+          class="nav-link"
+          onclick="cambiarSeccion('instituciones', this)"
+        >
+          <i class="bi bi-building"></i> Instituciones
+        </a>
+        <a href="#" class="nav-link" onclick="cambiarSeccion('usuarios', this)">
+          <i class="bi bi-people"></i> Usuarios
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <button
+          class="btn btn-outline-danger btn-sm w-100"
+          onclick="cerrarSesion()"
+        >
+          <i class="bi bi-box-arrow-right me-2"></i>Cerrar sesión
+        </button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div id="seccion-dashboard" class="seccion activa">
+        <h4 class="fw-bold mb-1">Panel de Control</h4>
+        <p class="text-muted mb-4">
+          Bienvenido, <span id="welcome-nombre">Admin</span>
+        </p>
+        <div class="row g-4 mb-4">
+          <div class="col-6 col-lg-3">
+            <div
+              class="stat-card"
+              style="background: linear-gradient(135deg, #4361ee, #3a56d4)"
+            >
+              <div class="stat-number" id="stat-total">0</div>
+              <div class="stat-label">Total instituciones</div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div
+              class="stat-card"
+              style="background: linear-gradient(135deg, #f9a825, #f57f17)"
+            >
+              <div class="stat-number" id="stat-pendientes">0</div>
+              <div class="stat-label">Pendientes</div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div
+              class="stat-card"
+              style="background: linear-gradient(135deg, #2ecc71, #27ae60)"
+            >
+              <div class="stat-number" id="stat-aprobadas">0</div>
+              <div class="stat-label">Aprobadas</div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div
+              class="stat-card"
+              style="background: linear-gradient(135deg, #e74c3c, #c0392b)"
+            >
+              <div class="stat-number" id="stat-rechazadas">0</div>
+              <div class="stat-label">Rechazadas</div>
+            </div>
+          </div>
+        </div>
+        <div class="card tabla-card">
+          <div
+            class="card-header d-flex justify-content-between align-items-center"
+          >
+            <span
+              ><i class="bi bi-clock-history me-2 text-primary"></i>Solicitudes
+              recientes</span
+            >
+            <a
+              href="#"
+              class="btn btn-sm btn-outline-primary"
+              onclick="cambiarSeccion('solicitudes', null)"
+              >Ver todas</a
+            >
+          </div>
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table class="table mb-0">
+                <thead>
+                  <tr>
+                    <th>Institución</th>
+                    <th>Localidad</th>
+                    <th>CUE</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="tabla-recientes">
+                  <tr>
+                    <td colspan="5" class="text-center text-muted py-4">
+                      Cargando...
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="seccion-solicitudes" class="seccion">
+        <h4 class="fw-bold mb-1">Solicitudes pendientes</h4>
+        <p class="text-muted mb-4">
+          Revisá y aprobá o rechazá las solicitudes de instituciones
+        </p>
+        <div id="alerta-accion" class="d-none mb-3"></div>
+        <div class="card tabla-card">
+          <div class="card-header">
+            <i class="bi bi-hourglass-split me-2 text-warning"></i>Pendientes de
+            revisión
+          </div>
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table class="table mb-0">
+                <thead>
+                  <tr>
+                    <th>Institución</th>
+                    <th>Localidad</th>
+                    <th>CUE</th>
+                    <th>Email</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="tabla-pendientes">
+                  <tr>
+                    <td colspan="5" class="text-center text-muted py-4">
+                      Cargando...
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="seccion-instituciones" class="seccion">
+        <h4 class="fw-bold mb-1">Instituciones</h4>
+        <p class="text-muted mb-4">
+          Todas las instituciones registradas en GIA
+        </p>
+        <div class="card tabla-card">
+          <div class="card-header">
+            <i class="bi bi-building me-2 text-primary"></i>Listado completo
+          </div>
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table class="table mb-0">
+                <thead>
+                  <tr>
+                    <th>Institución</th>
+                    <th>Localidad</th>
+                    <th>CUE</th>
+                    <th>Email</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="tabla-instituciones">
+                  <tr>
+                    <td colspan="6" class="text-center text-muted py-4">
+                      Cargando...
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="seccion-usuarios" class="seccion">
+        <h4 class="fw-bold mb-1">Usuarios</h4>
+        <p class="text-muted mb-4">
+          Todos los usuarios registrados en el sistema
+        </p>
+        <div class="card tabla-card">
+          <div class="card-header">
+            <i class="bi bi-people me-2 text-primary"></i>Listado de usuarios
+          </div>
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table class="table mb-0">
+                <thead>
+                  <tr>
+                    <th>Email</th>
+                    <th>Rol</th>
+                  </tr>
+                </thead>
+                <tbody id="tabla-usuarios">
+                  <tr>
+                    <td colspan="2" class="text-center text-muted py-4">
+                      Cargando...
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/panel.js"></script>
+  </body>
+</html>

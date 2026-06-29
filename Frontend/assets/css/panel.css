@@ -1,0 +1,67 @@
+body { background: #f4f6fb; }
+
+.sidebar {
+  width: 260px;
+  min-height: 100vh;
+  background: #1a1f3a;
+  position: fixed;
+  top: 0; left: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  transition: transform 0.3s;
+}
+.sidebar-logo {
+  padding: 24px 20px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.sidebar-logo img { width: 110px; filter: brightness(0) invert(1); }
+.sidebar-logo a { color: rgba(255,255,255,0.5); font-size:0.8rem; display:block; margin-top:8px; text-decoration: none; }
+.sidebar-logo a:hover { color: white; }
+.sidebar-user {
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.7);
+  font-size: 0.85rem;
+}
+.sidebar-user strong { color: white; display: block; font-size: 0.95rem; }
+.sidebar-nav { flex: 1; padding: 16px 12px; }
+.sidebar-nav .nav-link {
+  color: rgba(255,255,255,0.65);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 4px;
+  font-weight: 500;
+  transition: 0.2s;
+}
+.sidebar-nav .nav-link:hover { background: rgba(255,255,255,0.08); color: white; }
+.sidebar-nav .nav-link.active { background: #4361ee; color: white; }
+.sidebar-nav .nav-link i { margin-right: 10px; font-size: 1rem; }
+.sidebar-footer { padding: 16px 20px; border-top: 1px solid rgba(255,255,255,0.08); }
+
+.main-content { margin-left: 260px; min-height: 100vh; padding: 32px; }
+
+.stat-card { border: none; border-radius: 16px; padding: 24px; color: white; }
+.stat-card .stat-number { font-size: 2.2rem; font-weight: 800; }
+.stat-card .stat-label { opacity: 0.85; font-size: 0.9rem; }
+
+.tabla-card { border: none; border-radius: 16px; box-shadow: 0 2px 16px rgba(0,0,0,0.07); overflow: hidden; }
+.tabla-card .card-header { background: white; border-bottom: 1px solid #eee; padding: 20px 24px; font-weight: 700; }
+.tabla-card table th { background: #f8faff; font-weight: 600; color: #555; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; border: none; padding: 14px 16px; }
+.tabla-card table td { padding: 14px 16px; vertical-align: middle; border-color: #f0f0f0; }
+
+.badge-pendiente { background: #fff3cd; color: #856404; border-radius: 20px; padding: 4px 12px; font-size: 0.75rem; }
+.badge-aprobado { background: #d1e7dd; color: #0a3622; border-radius: 20px; padding: 4px 12px; font-size: 0.75rem; }
+.badge-rechazado { background: #f8d7da; color: #842029; border-radius: 20px; padding: 4px 12px; font-size: 0.75rem; }
+
+.seccion { display: none; }
+.seccion.activa { display: block; }
+
+.sidebar-toggle { display: none; position: fixed; top: 16px; left: 16px; z-index: 200; background: #1a1f3a; color: white; border: none; border-radius: 8px; padding: 8px 12px; }
+
+@media (max-width: 768px) {
+  .sidebar { transform: translateX(-100%); }
+  .sidebar.abierto { transform: translateX(0); }
+  .main-content { margin-left: 0; padding: 20px; padding-top: 60px; }
+  .sidebar-toggle { display: block; }
+}
