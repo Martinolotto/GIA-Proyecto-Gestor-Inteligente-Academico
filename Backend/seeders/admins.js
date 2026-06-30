@@ -19,7 +19,7 @@ const seed = async () => {
     const admins = [
       {
         email: "ivanemmanuelgomez2017@gmail.com",
-        contrasenia: "adiministradorSupremo",
+        contrasenia: "administradorSupremo",
         nombre: "Ivan Emmanuel",
         apellido: "Gomez",
         dni: 45050884,

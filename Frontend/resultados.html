@@ -1,5 +1,49 @@
-    <!-- Lista de coincidencia de instituciones 
-quizas on un contendor vacio, que nos sirva de molde, porque js va a borrar lo que esta dentro y va a hacer las tarjetas con los datos de las escuelas que coincidan con la busqueda,
-que se muestre como tipo cards, como cuando buscas algo en mercadolibre.
-dejar el codigo ordenado para que js genere las tarjetas -->
-     
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GIA | Resultados</title>
+    <link rel="icon" type="image/png" href="assets/img/logo-gia-circular.png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/resultados.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg gia-navbar sticky-top">
+      <div class="container-fluid px-lg-4">
+        <a class="navbar-brand" href="index.html">
+          <img src="assets/img/logo-GIA.png" alt="GIA" class="gia-logo" />
+        </a>
+        <div class="gia-auth ms-auto">
+          <a href="login.html" class="gia-login">Iniciar sesión</a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="search-hero">
+      <div class="container text-center">
+        <h1 class="fw-bold mb-2">Buscá tu institución</h1>
+        <p class="mb-4 opacity-75">Encontrá carreras, requisitos y más información</p>
+        <div class="search-bar-wrap">
+          <input type="text" id="input-busqueda" placeholder="Nombre de institución o localidad..." />
+          <button class="btn btn-primary" onclick="buscar()">
+            <i class="bi bi-search me-1"></i> Buscar
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5">
+      <div class="container">
+        <div id="contador-resultados" class="mb-4 text-muted small"></div>
+        <div id="contenedor-resultados" class="row g-4"></div>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/resultados.js"></script>
+  </body>
+</html>
