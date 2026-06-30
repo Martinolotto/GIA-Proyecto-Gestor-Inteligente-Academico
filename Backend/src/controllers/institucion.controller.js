@@ -110,13 +110,43 @@ export const obtenerInstitucionPorId = async (req, res) => {
 
 export const editarInstitucion = async (req, res) => {
   try {
-    const { nombre_institucion, localidad, email, imagen_url } = req.body;
+    const {
+      nombre_institucion,
+      localidad,
+      direccion,
+      telefono,
+      sitio_web,
+      email,
+      imagen_url,
+      facebook,
+      instagram,
+      descripcion,
+      requisitos,
+      becas,
+      documentacion
+    } = req.body;
+
     await TableInstitucion.update(
-      { nombre_institucion, localidad, email, imagen_url },
+      {
+        nombre_institucion,
+        localidad,
+        direccion,
+        telefono,
+        sitio_web,
+        email,
+        imagen_url,
+        facebook,
+        instagram,
+        descripcion,
+        requisitos,
+        becas,
+        documentacion
+      },
       { where: { id: req.params.id } }
     );
     res.json({ message: "Datos actualizados correctamente." });
   } catch (error) {
+    console.log(error.message);
     res.status(500).json(errorMessage);
   }
 };

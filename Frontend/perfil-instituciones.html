@@ -5,18 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GIA | Perfil de Institución</title>
     <link rel="icon" type="image/png" href="assets/img/logo-gia-circular.png" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/perfil.css" />
   </head>
@@ -27,57 +18,29 @@
           <img src="assets/img/logo-GIA.png" alt="GIA" class="gia-logo" />
         </a>
         <div class="ms-auto d-flex align-items-center gap-3">
-          <button
-            id="btn-panel"
-            class="btn btn-sm btn-primary d-none"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#panelRepresentante"
-          >
+          <button id="btn-panel" class="btn btn-sm btn-primary d-none"
+            data-bs-toggle="offcanvas" data-bs-target="#panelRepresentante">
             <i class="bi bi-grid-fill me-1"></i> Mi Panel
           </button>
-          <a href="login.html" class="gia-login" id="btn-login-nav"
-            >Iniciar sesión</a
-          >
-          <button
-            class="btn btn-sm btn-outline-danger d-none"
-            id="btn-logout"
-            onclick="cerrarSesion()"
-          >
+          <a href="login.html" class="gia-login" id="btn-login-nav">Iniciar sesión</a>
+          <button class="btn btn-sm btn-outline-danger d-none" id="btn-logout" onclick="cerrarSesion()">
             <i class="bi bi-box-arrow-right"></i> Salir
           </button>
         </div>
       </div>
     </nav>
 
-    <div
-      class="offcanvas offcanvas-start"
-      tabindex="-1"
-      id="panelRepresentante"
-    >
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="panelRepresentante">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title">
-          <i class="bi bi-building me-2"></i>Panel de Institución
-        </h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="offcanvas"
-        ></button>
+        <h5 class="offcanvas-title"><i class="bi bi-building me-2"></i>Panel de Institución</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
       </div>
       <div class="offcanvas-body">
         <nav class="nav-panel d-flex flex-column">
-          <a
-            href="#"
-            class="nav-link active"
-            onclick="mostrarSeccion('ver-perfil')"
-          >
+          <a href="#" class="nav-link active" onclick="mostrarSeccion('ver-perfil')">
             <i class="bi bi-eye"></i> Ver mi perfil
           </a>
-          <a
-            href="#"
-            class="nav-link"
-            onclick="mostrarSeccion('editar-perfil')"
-          >
+          <a href="#" class="nav-link" onclick="mostrarSeccion('editar-perfil')">
             <i class="bi bi-pencil-square"></i> Editar información
           </a>
           <hr />
@@ -94,21 +57,11 @@
     <section class="perfil-hero" id="perfil-hero">
       <div class="container">
         <div class="d-flex align-items-center gap-4 flex-wrap">
-          <img
-            id="inst-logo"
-            src="assets/img/logo-gia-circular.png"
-            alt="Logo institución"
-            class="perfil-logo"
-          />
+          <img id="inst-logo" src="assets/img/logo-gia-circular.png" alt="Logo institución" class="perfil-logo" />
           <div>
             <h1 class="fw-bold mb-1" id="inst-nombre">Cargando...</h1>
-            <p class="mb-1 opacity-75">
-              <i class="bi bi-geo-alt me-1"></i
-              ><span id="inst-localidad"></span>
-            </p>
-            <p class="mb-0 opacity-75">
-              <i class="bi bi-envelope me-1"></i><span id="inst-email"></span>
-            </p>
+            <p class="mb-1 opacity-75"><i class="bi bi-geo-alt me-1"></i><span id="inst-localidad"></span></p>
+            <p class="mb-0 opacity-75"><i class="bi bi-envelope me-1"></i><span id="inst-email"></span></p>
           </div>
         </div>
       </div>
@@ -117,87 +70,146 @@
     <main class="py-5">
       <div class="container">
         <div id="panel-representante-aviso" class="panel-representante d-none">
-          <strong
-            ><i class="bi bi-info-circle me-2"></i>Sos el representante de esta
-            institución.</strong
-          >
-          <p class="mb-0 mt-1 text-muted small">
-            Podés editar tu información desde el panel lateral.
-          </p>
+          <strong><i class="bi bi-info-circle me-2"></i>Sos el representante de esta institución.</strong>
+          <p class="mb-0 mt-1 text-muted small">Podés editar tu información desde el panel lateral.</p>
         </div>
 
+        <!-- VISTA PÚBLICA -->
         <div id="seccion-ver-perfil">
+
+          <!-- Descripción -->
+          <div class="card info-card p-4 mb-4" id="card-descripcion">
+            <h5 class="fw-bold mb-3"><i class="bi bi-card-text me-2 text-primary"></i>Sobre la institución</h5>
+            <p id="inst-descripcion" class="mb-0 text-muted">—</p>
+          </div>
+
           <div class="row g-4">
+            <!-- Información general -->
             <div class="col-12 col-md-6">
               <div class="card info-card p-4 h-100">
-                <h5 class="fw-bold mb-3">
-                  <i class="bi bi-info-circle me-2 text-primary"></i>Información
-                  general
-                </h5>
+                <h5 class="fw-bold mb-3"><i class="bi bi-info-circle me-2 text-primary"></i>Información general</h5>
                 <ul class="list-unstyled mb-0">
-                  <li class="mb-2">
-                    <strong>CUE:</strong> <span id="inst-cue">—</span>
-                  </li>
-                  <li class="mb-2">
-                    <strong>Localidad:</strong>
-                    <span id="inst-localidad-2">—</span>
-                  </li>
-                  <li class="mb-2">
-                    <strong>Email:</strong> <span id="inst-email-2">—</span>
-                  </li>
-                  <li>
-                    <strong>Estado:</strong>
-                    <span id="inst-estado" class="badge badge-estado bg-success"
-                      >—</span
-                    >
-                  </li>
+                  <li class="mb-2"><strong>CUE:</strong> <span id="inst-cue">—</span></li>
+                  <li class="mb-2"><strong>Localidad:</strong> <span id="inst-localidad-2">—</span></li>
+                  <li class="mb-2"><strong>Dirección:</strong> <span id="inst-direccion">—</span></li>
+                  <li class="mb-2"><strong>Teléfono:</strong> <span id="inst-telefono">—</span></li>
+                  <li class="mb-2"><strong>Email:</strong> <span id="inst-email-2">—</span></li>
+                  <li><strong>Estado:</strong> <span id="inst-estado" class="badge badge-estado bg-success">—</span></li>
                 </ul>
               </div>
             </div>
+
+            <!-- Enlaces y redes -->
             <div class="col-12 col-md-6">
               <div class="card info-card p-4 h-100">
-                <h5 class="fw-bold mb-3">
-                  <i class="bi bi-mortarboard me-2 text-primary"></i>Carreras
-                  disponibles
-                </h5>
-                <p class="text-muted small">
-                  Próximamente el representante podrá cargar las carreras
-                  disponibles.
-                </p>
+                <h5 class="fw-bold mb-3"><i class="bi bi-link-45deg me-2 text-primary"></i>Enlaces</h5>
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-2"><i class="bi bi-globe me-2"></i><a id="inst-web" href="#" target="_blank">—</a></li>
+                  <li class="mb-2"><i class="bi bi-facebook me-2"></i><a id="inst-facebook" href="#" target="_blank">—</a></li>
+                  <li class="mb-2"><i class="bi bi-instagram me-2"></i><a id="inst-instagram" href="#" target="_blank">—</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Requisitos -->
+            <div class="col-12 col-md-6">
+              <div class="card info-card p-4 h-100">
+                <h5 class="fw-bold mb-3"><i class="bi bi-list-check me-2 text-primary"></i>Requisitos de ingreso</h5>
+                <p id="inst-requisitos" class="mb-0 text-muted" style="white-space: pre-line">—</p>
+              </div>
+            </div>
+
+            <!-- Documentación -->
+            <div class="col-12 col-md-6">
+              <div class="card info-card p-4 h-100">
+                <h5 class="fw-bold mb-3"><i class="bi bi-file-earmark-text me-2 text-primary"></i>Documentación requerida</h5>
+                <p id="inst-documentacion" class="mb-0 text-muted" style="white-space: pre-line">—</p>
+              </div>
+            </div>
+
+            <!-- Becas -->
+            <div class="col-12">
+              <div class="card info-card p-4">
+                <h5 class="fw-bold mb-3"><i class="bi bi-award me-2 text-primary"></i>Becas disponibles</h5>
+                <p id="inst-becas" class="mb-0 text-muted" style="white-space: pre-line">—</p>
               </div>
             </div>
           </div>
         </div>
 
+        <!-- FORMULARIO DE EDICIÓN -->
         <div id="seccion-editar-perfil" class="d-none">
           <div class="card info-card p-4">
-            <h5 class="fw-bold mb-4">
-              <i class="bi bi-pencil-square me-2 text-primary"></i>Editar
-              información de la institución
-            </h5>
+            <h5 class="fw-bold mb-4"><i class="bi bi-pencil-square me-2 text-primary"></i>Editar información de la institución</h5>
             <div id="alerta-editar" class="d-none mb-3"></div>
             <form id="form-editar">
+
+              <h6 class="fw-bold text-primary mb-3 mt-2"><i class="bi bi-building me-2"></i>Datos básicos</h6>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label class="form-label">Nombre de la institución</label>
+                  <input type="text" class="form-control" id="edit-nombre" />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label class="form-label">Email institucional</label>
+                  <input type="email" class="form-control" id="edit-email" />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label class="form-label">Localidad</label>
+                  <input type="text" class="form-control" id="edit-localidad" />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label class="form-label">Dirección</label>
+                  <input type="text" class="form-control" id="edit-direccion" placeholder="Calle y número" />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label class="form-label">Teléfono</label>
+                  <input type="text" class="form-control" id="edit-telefono" placeholder="+54 370 ..." />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label class="form-label">URL del logo</label>
+                  <input type="url" class="form-control" id="edit-imagen" placeholder="https://..." />
+                </div>
+              </div>
+
+              <hr class="my-4" />
+
+              <h6 class="fw-bold text-primary mb-3"><i class="bi bi-link-45deg me-2"></i>Enlaces y redes</h6>
+              <div class="row">
+                <div class="col-md-12 mb-3">
+                  <label class="form-label">Sitio web</label>
+                  <input type="url" class="form-control" id="edit-sitio-web" placeholder="https://..." />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label class="form-label"><i class="bi bi-facebook me-1"></i> Facebook</label>
+                  <input type="url" class="form-control" id="edit-facebook" placeholder="https://facebook.com/..." />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label class="form-label"><i class="bi bi-instagram me-1"></i> Instagram</label>
+                  <input type="url" class="form-control" id="edit-instagram" placeholder="https://instagram.com/..." />
+                </div>
+              </div>
+
+              <hr class="my-4" />
+
+              <h6 class="fw-bold text-primary mb-3"><i class="bi bi-card-text me-2"></i>Información detallada</h6>
               <div class="mb-3">
-                <label class="form-label">Nombre de la institución</label>
-                <input type="text" class="form-control" id="edit-nombre" />
+                <label class="form-label">Descripción</label>
+                <textarea class="form-control" id="edit-descripcion" rows="3" placeholder="Breve presentación de la institución..."></textarea>
               </div>
               <div class="mb-3">
-                <label class="form-label">Localidad</label>
-                <input type="text" class="form-control" id="edit-localidad" />
+                <label class="form-label">Requisitos de ingreso</label>
+                <textarea class="form-control" id="edit-requisitos" rows="4" placeholder="Ej:&#10;- Secundario completo&#10;- Curso de ingreso aprobado"></textarea>
               </div>
               <div class="mb-3">
-                <label class="form-label">Email institucional</label>
-                <input type="email" class="form-control" id="edit-email" />
+                <label class="form-label">Documentación requerida</label>
+                <textarea class="form-control" id="edit-documentacion" rows="4" placeholder="Ej:&#10;- DNI&#10;- Analítico secundario&#10;- Certificado de salud"></textarea>
               </div>
               <div class="mb-4">
-                <label class="form-label">URL del logo</label>
-                <input
-                  type="url"
-                  class="form-control"
-                  id="edit-imagen"
-                  placeholder="https://..."
-                />
+                <label class="form-label">Becas disponibles</label>
+                <textarea class="form-control" id="edit-becas" rows="4" placeholder="Ej:&#10;- Beca Progresar&#10;- Beca de transporte"></textarea>
               </div>
+
               <button type="submit" class="btn btn-primary">
                 <i class="bi bi-save me-2"></i>Guardar cambios
               </button>

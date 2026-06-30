@@ -8,11 +8,9 @@ window.addEventListener("DOMContentLoaded", async () => {
 
   if (token && usuarioStr) {
     usuarioLogueado = JSON.parse(usuarioStr);
-    // Si hay sesión activa, ocultar el botón de iniciar sesión y mostrar el de salir
     document.getElementById("btn-login-nav").classList.add("d-none");
     document.getElementById("btn-logout").classList.remove("d-none");
 
-    // Solo el representante ve el botón "Mi Panel" y el aviso
     if (usuarioLogueado.role === "representante") {
       document.getElementById("btn-panel").classList.remove("d-none");
       document.getElementById("panel-representante-aviso").classList.remove("d-none");
@@ -40,18 +38,58 @@ async function cargarInstitucion(id) {
 }
 
 function mostrarDatos(inst) {
+  // Hero
   document.getElementById("inst-nombre").textContent = inst.nombre_institucion;
   document.getElementById("inst-localidad").textContent = inst.localidad;
   document.getElementById("inst-email").textContent = inst.email;
   document.getElementById("inst-logo").src = inst.imagen_url;
+
+  // Info general
   document.getElementById("inst-cue").textContent = inst.cue;
   document.getElementById("inst-localidad-2").textContent = inst.localidad;
+  document.getElementById("inst-direccion").textContent = inst.direccion || "—";
+  document.getElementById("inst-telefono").textContent = inst.telefono || "—";
   document.getElementById("inst-email-2").textContent = inst.email;
   document.getElementById("inst-estado").textContent = inst.estado;
-  document.getElementById("edit-nombre").value = inst.nombre_institucion;
-  document.getElementById("edit-localidad").value = inst.localidad;
-  document.getElementById("edit-email").value = inst.email;
-  document.getElementById("edit-imagen").value = inst.imagen_url;
+
+  // Descripción
+  document.getElementById("inst-descripcion").textContent = inst.descripcion || "Esta institución aún no cargó una descripción.";
+
+  // Enlaces
+  setLink("inst-web", inst.sitio_web, "Sitio web");
+  setLink("inst-facebook", inst.facebook, "Facebook");
+  setLink("inst-instagram", inst.instagram, "Instagram");
+
+  // Requisitos / Documentación / Becas
+  document.getElementById("inst-requisitos").textContent = inst.requisitos || "Sin información cargada todavía.";
+  document.getElementById("inst-documentacion").textContent = inst.documentacion || "Sin información cargada todavía.";
+  document.getElementById("inst-becas").textContent = inst.becas || "Sin información cargada todavía.";
+
+  // Pre-llenar formulario de edición
+  document.getElementById("edit-nombre").value = inst.nombre_institucion || "";
+  document.getElementById("edit-localidad").value = inst.localidad || "";
+  document.getElementById("edit-direccion").value = inst.direccion || "";
+  document.getElementById("edit-telefono").value = inst.telefono || "";
+  document.getElementById("edit-email").value = inst.email || "";
+  document.getElementById("edit-imagen").value = inst.imagen_url || "";
+  document.getElementById("edit-sitio-web").value = inst.sitio_web || "";
+  document.getElementById("edit-facebook").value = inst.facebook || "";
+  document.getElementById("edit-instagram").value = inst.instagram || "";
+  document.getElementById("edit-descripcion").value = inst.descripcion || "";
+  document.getElementById("edit-requisitos").value = inst.requisitos || "";
+  document.getElementById("edit-documentacion").value = inst.documentacion || "";
+  document.getElementById("edit-becas").value = inst.becas || "";
+}
+
+function setLink(id, url, label) {
+  const a = document.getElementById(id);
+  if (url) {
+    a.textContent = label;
+    a.href = url;
+  } else {
+    a.textContent = "—";
+    a.removeAttribute("href");
+  }
 }
 
 function mostrarSeccion(seccion) {
@@ -76,8 +114,17 @@ document.getElementById("form-editar").addEventListener("submit", async (e) => {
   const datos = {
     nombre_institucion: document.getElementById("edit-nombre").value,
     localidad: document.getElementById("edit-localidad").value,
+    direccion: document.getElementById("edit-direccion").value,
+    telefono: document.getElementById("edit-telefono").value,
     email: document.getElementById("edit-email").value,
     imagen_url: document.getElementById("edit-imagen").value,
+    sitio_web: document.getElementById("edit-sitio-web").value,
+    facebook: document.getElementById("edit-facebook").value,
+    instagram: document.getElementById("edit-instagram").value,
+    descripcion: document.getElementById("edit-descripcion").value,
+    requisitos: document.getElementById("edit-requisitos").value,
+    documentacion: document.getElementById("edit-documentacion").value,
+    becas: document.getElementById("edit-becas").value,
   };
 
   try {

@@ -31,6 +31,15 @@ const seed = async () => {
         dni: 47548033,
         cargo: "Administrador",
         fecha_nacimiento: "2000-01-01"
+      },
+      {
+        email: "jonathansanchez@gmail.com",
+        contrasenia: "12345678",
+        nombre: "Jonathan",
+        apellido: "Sanchez",
+        dni: 40123456,
+        cargo: "Administrador",
+        fecha_nacimiento: "2000-01-01"
       }
     ];
 
@@ -66,7 +75,7 @@ const seed = async () => {
         cue: "342-0001",
         localidad: "Formosa",
         email: "ipf@educacion.formosa.gob.ar",
-        imagen_url: "https://via.placeholder.com/150?text=IPF",
+        imagen_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP13LiwM-8BeJYSVjjXV-QFgpjzWsR45DfWC_UUerRXOSk4h7fn7PRa9PP&s=10",
         estado: "aprobado"
       },
       {
@@ -74,7 +83,7 @@ const seed = async () => {
         cue: "342-0002",
         localidad: "Formosa",
         email: "info@unf.edu.ar",
-        imagen_url: "https://via.placeholder.com/150?text=UNaF",
+        imagen_url: "https://upload.wikimedia.org/wikipedia/commons/f/fa/UNaFLogoI.jpg",
         estado: "aprobado"
       },
       {
@@ -82,7 +91,7 @@ const seed = async () => {
         cue: "342-0003",
         localidad: "Formosa",
         email: "enfermeria@isef.edu.ar",
-        imagen_url: "https://via.placeholder.com/150?text=ISEF",
+        imagen_url: "https://cdn-icons-png.flaticon.com/512/2382/2382533.png",
         estado: "aprobado"
       }
     ];
