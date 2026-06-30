@@ -20,10 +20,13 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
       const inst = await res.json();
 
+      // Usar abreviatura si existe, sino el nombre completo
+      const nombre = inst.abreviatura || inst.nombre_institucion;
+
       authDiv.innerHTML = `
         <div class="d-flex align-items-center gap-2 me-2">
-          <img src="${inst.imagen_url}" alt="${inst.nombre_institucion}" style="width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid #fff" />
-          <span class="text-white small fw-semibold">${inst.nombre_institucion}</span>
+          <img src="${inst.imagen_url}" alt="${nombre}" style="width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid #fff" />
+          <span class="text-white small fw-semibold">${nombre}</span>
         </div>
         <a href="perfil-instituciones.html" class="gia-login">
           <i class="bi bi-grid-fill me-1"></i> Mi Panel

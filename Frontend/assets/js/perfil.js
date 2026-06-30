@@ -78,6 +78,7 @@ function mostrarDatos(inst) {
   document.getElementById("inst-becas").textContent = inst.becas || "Sin información cargada todavía.";
 
   document.getElementById("edit-nombre").value = inst.nombre_institucion || "";
+  document.getElementById("edit-abreviatura").value = inst.abreviatura || "";
   document.getElementById("edit-localidad").value = inst.localidad || "";
   document.getElementById("edit-direccion").value = inst.direccion || "";
   document.getElementById("edit-telefono").value = inst.telefono || "";
@@ -124,6 +125,7 @@ document.getElementById("form-editar").addEventListener("submit", async (e) => {
 
   const datos = {
     nombre_institucion: document.getElementById("edit-nombre").value,
+    abreviatura: document.getElementById("edit-abreviatura").value,
     localidad: document.getElementById("edit-localidad").value,
     direccion: document.getElementById("edit-direccion").value,
     telefono: document.getElementById("edit-telefono").value,

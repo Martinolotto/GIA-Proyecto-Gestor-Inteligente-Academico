@@ -7,6 +7,10 @@ export const TableInstitucion = sequelize.define("institucion", {
         allowNull: false,
         unique: true
     },
+    abreviatura: {
+        type: DataTypes.STRING(20),
+        allowNull: true
+    },
     cue: {
         type: DataTypes.STRING,
         unique: true,

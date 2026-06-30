@@ -112,6 +112,7 @@ export const editarInstitucion = async (req, res) => {
   try {
     const {
       nombre_institucion,
+      abreviatura,
       localidad,
       direccion,
       telefono,
@@ -129,6 +130,7 @@ export const editarInstitucion = async (req, res) => {
     await TableInstitucion.update(
       {
         nombre_institucion,
+        abreviatura,
         localidad,
         direccion,
         telefono,
