@@ -23,8 +23,25 @@ window.addEventListener("DOMContentLoaded", async () => {
   if (id) {
     institucionId = id;
     await cargarInstitucion(id);
+  } else if (usuarioLogueado?.role === "representante") {
+    await cargarMiInstitucion();
   }
 });
+
+async function cargarMiInstitucion() {
+  try {
+    const token = localStorage.getItem("token");
+    const res = await fetch(`${API}/instituciones/mi-institucion`, {
+      headers: { "Authorization": `Bearer ${token}` }
+    });
+    const inst = await res.json();
+    if (!res.ok) throw new Error(inst.message);
+    institucionId = inst.id;
+    mostrarDatos(inst);
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 async function cargarInstitucion(id) {
   try {
@@ -38,13 +55,11 @@ async function cargarInstitucion(id) {
 }
 
 function mostrarDatos(inst) {
-  // Hero
   document.getElementById("inst-nombre").textContent = inst.nombre_institucion;
   document.getElementById("inst-localidad").textContent = inst.localidad;
   document.getElementById("inst-email").textContent = inst.email;
   document.getElementById("inst-logo").src = inst.imagen_url;
 
-  // Info general
   document.getElementById("inst-cue").textContent = inst.cue;
   document.getElementById("inst-localidad-2").textContent = inst.localidad;
   document.getElementById("inst-direccion").textContent = inst.direccion || "—";
@@ -52,20 +67,16 @@ function mostrarDatos(inst) {
   document.getElementById("inst-email-2").textContent = inst.email;
   document.getElementById("inst-estado").textContent = inst.estado;
 
-  // Descripción
   document.getElementById("inst-descripcion").textContent = inst.descripcion || "Esta institución aún no cargó una descripción.";
 
-  // Enlaces
   setLink("inst-web", inst.sitio_web, "Sitio web");
   setLink("inst-facebook", inst.facebook, "Facebook");
   setLink("inst-instagram", inst.instagram, "Instagram");
 
-  // Requisitos / Documentación / Becas
   document.getElementById("inst-requisitos").textContent = inst.requisitos || "Sin información cargada todavía.";
   document.getElementById("inst-documentacion").textContent = inst.documentacion || "Sin información cargada todavía.";
   document.getElementById("inst-becas").textContent = inst.becas || "Sin información cargada todavía.";
 
-  // Pre-llenar formulario de edición
   document.getElementById("edit-nombre").value = inst.nombre_institucion || "";
   document.getElementById("edit-localidad").value = inst.localidad || "";
   document.getElementById("edit-direccion").value = inst.direccion || "";
@@ -138,11 +149,27 @@ document.getElementById("form-editar").addEventListener("submit", async (e) => {
     });
 
     const data = await res.json();
-    alerta.className = res.ok ? "alert alert-success" : "alert alert-danger";
-    alerta.textContent = data.message;
-    alerta.classList.remove("d-none");
 
-    if (res.ok) await cargarInstitucion(institucionId);
+    if (res.ok) {
+      alerta.className = "alert alert-success";
+      alerta.textContent = "✅ Actualización exitosa";
+      alerta.classList.remove("d-none");
+
+      if (usuarioLogueado?.role === "representante" && !new URLSearchParams(window.location.search).get("id")) {
+        await cargarMiInstitucion();
+      } else {
+        await cargarInstitucion(institucionId);
+      }
+
+      setTimeout(() => {
+        mostrarSeccion("ver-perfil");
+        alerta.classList.add("d-none");
+      }, 1000);
+    } else {
+      alerta.className = "alert alert-danger";
+      alerta.textContent = data.message;
+      alerta.classList.remove("d-none");
+    }
 
   } catch (error) {
     alerta.className = "alert alert-danger";

@@ -150,3 +150,25 @@ export const editarInstitucion = async (req, res) => {
     res.status(500).json(errorMessage);
   }
 };
+
+export const obtenerMiInstitucion = async (req, res) => {
+  try {
+    const representante = await TableRepresentante.findOne({
+      where: { usuario_id: req.usuario.id }
+    });
+
+    if (!representante) {
+      return res.status(404).json({ message: "No se encontró representante" });
+    }
+
+    const institucion = await TableInstitucion.findByPk(representante.institucion_id);
+    if (!institucion) {
+      return res.status(404).json({ message: "Institución no encontrada" });
+    }
+
+    res.json(institucion);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).json(errorMessage);
+  }
+};
